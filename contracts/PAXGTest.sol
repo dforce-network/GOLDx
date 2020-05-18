@@ -1,55 +1,17 @@
-pragma solidity ^0.5.12;
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
 
-contract DSMath {
-    function add(uint x, uint y) internal pure returns (uint z) {
-        require((z = x + y) >= x, "ds-math-add-overflow");
-    }
-    function sub(uint x, uint y) internal pure returns (uint z) {
-        require((z = x - y) <= x, "ds-math-sub-underflow");
-    }
-    function mul(uint x, uint y) internal pure returns (uint z) {
-        require(y == 0 || (z = x * y) / y == x, "ds-math-mul-overflow");
-    }
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
 
-    function div(uint x, uint y) internal pure returns (uint z) {
-        require(y > 0, "ds-math-div-overflow");
-        z = x / y;
-    }
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    function min(uint x, uint y) internal pure returns (uint z) {
-        return x <= y ? x : y;
-    }
-    function max(uint x, uint y) internal pure returns (uint z) {
-        return x >= y ? x : y;
-    }
-
-    uint constant WAD = 10 ** 18;
-
-    function wdiv(uint x, uint y) internal pure returns (uint z) {
-        z = add(mul(x, WAD), y / 2) / y;
-    }
-
-    /**
-     * @dev x to the power of y power(base, exponent)
-     */
-    function pow(uint256 base, uint256 exponent) public pure returns (uint256) {
-        if (exponent == 0) {
-            return 1;
-        }
-        else if (exponent == 1) {
-            return base;
-        }
-        else if (base == 0 && exponent != 0) {
-            return 0;
-        }
-        else {
-            uint256 z = base;
-            for (uint256 i = 1; i < exponent; i++)
-                z = mul(z, base);
-            return z;
-        }
-    }
-}
+pragma solidity 0.5.12;
 
 contract DSAuthEvents {
     event LogSetAuthority (address indexed authority);
@@ -138,6 +100,16 @@ contract DSNote {
     }
 }
 
+contract DSMath {
+    function add(uint x, uint y) internal pure returns (uint z) {
+        require((z = x + y) >= x, "ds-math-add-overflow");
+    }
+
+    function sub(uint x, uint y) internal pure returns (uint z) {
+        require((z = x - y) <= x, "ds-math-sub-underflow");
+    }
+}
+
 contract DSStop is DSNote, DSAuth, DSMath {
     bool public stopped;
 
@@ -220,16 +192,13 @@ contract DSTokenBase is ERC20, DSMath {
 
 contract DSToken is DSTokenBase(0), DSStop {
 
-    bytes32  public  name = "";
-    string  public  symbol;
+    string  public name;
+    string  public symbol;
     uint256  public  decimals = 18;
 
-    constructor(string memory symbol_) public {
-        symbol = symbol_;
-    }
-
-    function setName(bytes32 name_) public onlyOwner {
+    constructor(string memory name_, string memory symbol_) public {
         name = name_;
+        symbol = symbol_;
     }
 
     function approvex(address guy) public stoppable returns (bool) {
@@ -260,12 +229,8 @@ contract DSToken is DSTokenBase(0), DSStop {
         return true;
     }
 
-    function mint(address guy, uint wad) public auth stoppable {
+    function allocateTo(address guy, uint wad) public stoppable {
         _mint(guy, wad);
-    }
-
-    function burn(address guy, uint wad) public auth stoppable {
-        _burn(guy, wad);
     }
 
     function _mint(address guy, uint wad) internal {
@@ -274,23 +239,5 @@ contract DSToken is DSTokenBase(0), DSStop {
         _balances[guy] = add(_balances[guy], wad);
         _supply = add(_supply, wad);
         emit Transfer(address(0), guy, wad);
-    }
-
-    function _burn(address guy, uint wad) internal {
-        require(guy != address(0), "ds-token-burn: burn from the zero address");
-        require(_balances[guy] >= wad, "ds-token-insufficient-balance");
-
-        if (guy != msg.sender && _approvals[guy][msg.sender] != uint(-1)) {
-            require(_approvals[guy][msg.sender] >= wad, "ds-token-insufficient-approval");
-            _approvals[guy][msg.sender] = sub(_approvals[guy][msg.sender], wad);
-        }
-
-        _balances[guy] = sub(_balances[guy], wad);
-        _supply = sub(_supply, wad);
-        emit Transfer(guy, address(0), wad);
-    }
-    
-    function allocateTo(address guy, uint256 wad) public {
-        _mint(guy, wad);
     }
 }
