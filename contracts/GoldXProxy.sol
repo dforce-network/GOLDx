@@ -171,7 +171,7 @@ contract AdminUpgradeabilityProxy is UpgradeabilityProxy {
     }
 }
 
-contract XGoldProxy is AdminUpgradeabilityProxy {
+contract GoldXProxy is AdminUpgradeabilityProxy {
     constructor(address _implementation) public AdminUpgradeabilityProxy(_implementation) {
     }
 }

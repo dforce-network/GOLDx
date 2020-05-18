@@ -4,7 +4,7 @@ import './library/ERC20SafeTransfer';
 import './library/Pausable';
 import './library/SafeMath';
 
-contract XGold is Pausable, ERC20SafeTransfer {
+contract GoldX is Pausable, ERC20SafeTransfer {
     using SafeMath for uint;
     // --- Data ---
     bool private initialized;     // flag of initialize data
