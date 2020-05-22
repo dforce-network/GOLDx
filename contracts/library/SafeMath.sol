@@ -12,4 +12,9 @@ library SafeMath {
     function mul(uint x, uint y) internal pure returns (uint z) {
         require(y == 0 || (z = x * y) / y == x);
     }
+
+    function div(uint x, uint y) internal pure returns (uint z) {
+        require(y > 0);
+        z = x / y;
+    }
 }

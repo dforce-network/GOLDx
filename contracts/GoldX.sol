@@ -3,6 +3,7 @@ pragma solidity 0.5.16;
 import "./helpers/ERC20SafeTransfer.sol";
 import "./helpers/ReentrancyGuard.sol";
 import "./library/Pausable.sol";
+import "./library/SafeMath.sol";
 
 contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     using SafeMath for uint256;
