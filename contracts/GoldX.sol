@@ -74,7 +74,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         owner = msg.sender;
         feeRecipient = msg.sender;
         notEntered = true;
-        unit = 31103500000000000000;
+        unit = 31103476800000000000;
         initialized = true;
     }
 
