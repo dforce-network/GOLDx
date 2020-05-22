@@ -48,8 +48,8 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     /**
      * @dev Modifier to make a function callable when the contract is before upgrading.
      */
-    modifier upgrade() {
-        require(upgradeTime == 0 || upgradeTime > now, "upgrade: Upgrading!");
+    modifier unupgraded() {
+        require(upgradeTime == 0 || upgradeTime > now, "unupgraded: Upgrading!");
         _;
     }
 
@@ -193,7 +193,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         // if (_balance > 0)
         //     require(doTransferOut(token, msg.sender, _balance));
 
-        // uint _pie = decimalsConvert(decimals, IERC20(pendingToken).decimals(), rdiv(totalSupply, pendingUnit));
+        // uint _pie = convertDecimals(decimals, IERC20(pendingToken).decimals(), rdiv(totalSupply, pendingUnit));
         // if (_pie > 0)
         //     require(doTransferFrom(pendingToken, msg.sender, address(this), _pie));
 
@@ -261,18 +261,18 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     // **** Internal functions ****
     // ****************************
     /**
-     * @dev
+     * @dev Checks whether the preconditions are met.
      */
-    function checkSender(address _src, address _dst, uint256 _wad) internal {
-        require(!blacklists[_src] && !blacklists[_dst], "checkSender: Address is frozen!");
-        require(balanceOf[_src] >= _wad, "checkSender: Insufficient balance!");
+    function checkPrecondition(address _src, address _dst, uint256 _wad) internal {
+        require(!blacklists[_src] && !blacklists[_dst], "checkPrecondition: Address is frozen!");
+        require(balanceOf[_src] >= _wad, "checkPrecondition: Insufficient balance!");
         if (_src != _dst && allowance[_src][_dst] != uint256(-1)) {
-            require(allowance[_src][_dst] >= _wad, "checkSender: Insufficient allowance!");
+            require(allowance[_src][_dst] >= _wad, "checkPrecondition: Insufficient allowance!");
             allowance[_src][_dst] = allowance[_src][_dst].sub(_wad);
         }
     }
 
-    function transfer(address _src, address _dst, uint256 _wad) internal whenNotPaused upgrade {
+    function transfer(address _src, address _dst, uint256 _wad) internal whenNotPaused unupgraded {
         uint256 _fee = getFee(fee[msg.sig], _wad);
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_src] = balanceOf[_src].sub(_wad);
@@ -288,26 +288,23 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     // **** Public functions ****
     // **************************
     /**
-     * @dev Deposit token to earn savings, but only when the contract is not paused.
-     * @param _dst account who will get benefits.
-     * @param _pie amount to buy, scaled by 1e18.
+     * @dev Wraps anchored asset to get GoldX.
+     * @param _dst Account who will get GoldX.
+     * @param _pie Amount to mint, scaled by 1e18.
      */
-    function mint(address _dst, uint256 _pie) external whenNotPaused upgrade nonReentrant {
-        require(
-            !blacklists[msg.sender] && !blacklists[_dst],
-            "mint: address frozen"
-        );
+    function mint(address _dst, uint256 _pie) external whenNotPaused unupgraded nonReentrant {
+        require(!blacklists[msg.sender] && !blacklists[_dst], "mint: Address is frozen!" );
         uint256 _balance = IERC20(token).balanceOf(address(this));
-        require(doTransferFrom(token, msg.sender, address(this), _pie));
+        require(doTransferFrom(token, msg.sender, address(this), _pie), "mint: TransferFrom failed!");
         uint256 _wad = rmul(
-            decimalsConvert(
+            convertDecimals(
                 IERC20(token).decimals(),
                 decimals,
                 IERC20(token).balanceOf(address(this)).sub(_balance)
             ),
             unit
         );
-        require(_wad > 0 && _wad >= minMintAmount, "mint:");
+        require(_wad > 0 && _wad >= minMintAmount, "mint: Do not satisfy min minting amount!");
         uint256 _fee = getFee(fee[msg.sig], _wad);
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_dst] = balanceOf[_dst].add(_principle);
@@ -320,13 +317,13 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     }
 
     /**
-     * @dev Withdraw to get token according to input xGold amount, but only when the contract is not paused.
-     * @param _src account who will receive benefits.
-     * @param _wad amount to burn xGold, scaled by 1e18.
+     * @dev Unwraps GlodX to get anchored asset.
+     * @param _src Account who will burn GoldX.
+     * @param _wad Amount to burn, scaled by 1e18.
      */
-    function burn(address _src, uint256 _wad) external whenNotPaused upgrade {
-        checkSender(_src, msg.sender, _wad);
-        require(_wad >= minBurnAmount, "burn:");
+    function burn(address _src, uint256 _wad) external whenNotPaused unupgraded {
+        checkPrecondition(_src, msg.sender, _wad);
+        require(_wad >= minBurnAmount, "burn: Do not satisfy min burning amount!");
         uint256 _fee = getFee(fee[msg.sig], _wad);
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_src] = balanceOf[_src].sub(_wad);
@@ -337,7 +334,9 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
             emit Transfer(_src, feeRecipient, _fee);
         }
         uint256 _pie = getRedeemAmount(_principle);
-        if (_pie > 0) require(doTransferOut(token, msg.sender, _pie));
+        if (_pie > 0) {
+            require(doTransferOut(token, msg.sender, _pie), "burn: Transfer out failed!");
+        }
     }
 
     // --- ERC20 ---
@@ -345,11 +344,8 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         return transferFrom(msg.sender, _dst, _wad);
     }
 
-    function transferFrom(address _src, address _dst, uint256 _wad)
-        public
-        returns (bool)
-    {
-        checkSender(_src, msg.sender, _wad);
+    function transferFrom(address _src, address _dst, uint256 _wad) public returns (bool) {
+        checkPrecondition(_src, msg.sender, _wad);
         transfer(_src, _dst, _wad);
         return true;
     }
@@ -360,40 +356,46 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         return true;
     }
 
+    // ***************************
+    // ***** Query functions *****
+    // ***************************
     /**
-     * @dev Total amount with earning savings.
-     * @param _src account to query current total balance.
-     * @return total balance with any accumulated interest.
+     * @dev Gets total amount of anchored asset of account`_src`.
+     * @param _src Account to query.
      */
     function getTokenBalance(address _src) external view returns (uint256) {
         return getRedeemAmount(balanceOf[_src]);
     }
 
     /**
-     * @dev Total amount with earning savings.
-     * @param _wad amount of xGold, scaled by 1e18.
-     * @return amount of token, scaled by 1e18.
+     * @dev Gets corresponding anchored asset based on the amount of GoldX.
+     * @param _wad Amount of GoldX, scaled by 1e18.
      */
     function getRedeemAmount(uint256 _wad) public view returns (uint256) {
         return
-            decimalsConvert(
+            convertDecimals(
                 decimals,
                 IERC20(token).decimals(),
                 rdiv(_wad, unit)
             );
     }
 
+    /**
+     * @dev Gets arrearing amount when removes reserve but does not add enough reserve.
+     */
     function getTokenArrears() public view returns (uint256) {
         int256 _amount = getTokenArrearsAmount(token, unit);
         return _amount > 0 ? uint256(_amount) : 0;
     }
 
-    function getTokenArrearsAmount(address _token, uint256 _unit)
-        public
-        view
-        returns (int256)
-    {
-        uint256 _amount = decimalsConvert(
+    /**
+     * @dev Gets arrearing amount when removes reserve but does not add enough reserve
+     *      based on anchored asset`_token` and exchange rate`_uint`.
+     * @return int256 negative number means insufficient reserve.
+     *          positive number means enough reserve.
+     */
+    function getTokenArrearsAmount(address _token, uint256 _unit) public view returns (int256) {
+        uint256 _amount = convertDecimals(
             decimals,
             IERC20(_token).decimals(),
             rdiv(totalSupply, _unit)
@@ -401,17 +403,20 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         return int256(_amount - IERC20(_token).balanceOf(address(this)));
     }
 
-    function getFee(uint256 _feeRate, uint256 _amount)
-        public
-        pure
-        returns (uint256)
-    {
+    /**
+     * @dev Gets execution fee based on the amount`_amount`.
+     */
+    function getFee(uint256 _feeRate, uint256 _amount) public pure returns (uint256) {
         if (_feeRate == 0) return 0;
 
         return rmul(_amount, _feeRate);
     }
 
-    function decimalsConvert(
+    /**
+     * @dev Gets corresponding output amount based on input decimal`_srcDecimals`, input amount`_amount`
+     *      and output decimal`_dstDecimals`.
+     */
+    function convertDecimals(
         uint256 _srcDecimals,
         uint256 _dstDecimals,
         uint256 _amount
