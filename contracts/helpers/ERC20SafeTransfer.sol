@@ -1,6 +1,6 @@
-pragma solidity 0.5.12;
+pragma solidity 0.5.16;
 
-import './IERC20';
+import '../interface/IERC20.sol';
 
 contract ERC20SafeTransfer {
     function doTransferOut(address _token, address _to, uint _amount) internal returns (bool) {
