@@ -1,17 +1,17 @@
-pragma solidity 0.5.12;
+pragma solidity 0.5.16;
 
-import './Ownable.sol';
+import './DSAuth.sol';
 
 /**
  * @dev Contract module which allows children to implement an emergency stop
- * mechanism that can be triggered by owner account.
+ * mechanism that can be triggered by authorized account.
  *
  * This module is used through inheritance. It will make available the
  * modifiers `whenNotPaused` and `whenPaused`, which can be applied to
  * the functions of your contract. Note that they will not be pausable by
  * simply including this module, only once the modifiers are put in place.
  */
-contract Pausable is Ownable {
+contract Pausable is DSAuth {
     bool public paused;
 
     /**
@@ -51,7 +51,7 @@ contract Pausable is Ownable {
     /**
      * @dev Called by the contract owner to pause, triggers stopped state.
      */
-    function pause() public whenNotPaused onlyOwner {
+    function pause() public whenNotPaused auth {
         paused = true;
         emit Paused(owner);
     }
@@ -59,7 +59,7 @@ contract Pausable is Ownable {
     /**
      * @dev Called by the contract owner to unpause, returns to normal state.
      */
-    function unpause() public whenPaused onlyOwner {
+    function unpause() public whenPaused auth {
         paused = false;
         emit Unpaused(owner);
     }
