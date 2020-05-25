@@ -42,6 +42,10 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     event Approval(address indexed src, address indexed guy, uint256 wad);
     event Transfer(address indexed src, address indexed dst, uint256 wad);
 
+    event Mint(address indexed dst, uint256 pie);
+    event Burn(address indexed src, uint256 wad);
+    event FeeCollected(address indexed src, address indexed dst, uint256 value);
+
     event BlacklistAdded(address indexed account);
     event BlacklistRemoved(address indexed account);
 
@@ -49,8 +53,8 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     /**
      * @dev Modifier to make a function callable when the contract is before upgrading.
      */
-    modifier unupgraded() {
-        require(upgradeTime == 0 || upgradeTime > now, "unupgraded: Upgrading!");
+    modifier notUpgrading() {
+        require(upgradeTime == 0 || upgradeTime > now, "notUpgrading: Upgrading!");
         _;
     }
 
@@ -188,16 +192,8 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     /**
      * @dev Authorized function to confirm upgrading only when exceeds the upgrading time.
      */
-    function confirmUpgrading() external auth {
-        require(upgradeTime > now, "confirmUpgrading:  Too early to confirm upgrading!");
-        // uint _balance = IERC20(token).balanceOf(address(this));
-        // if (_balance > 0)
-        //     require(doTransferOut(token, msg.sender, _balance));
-
-        // uint _pie = convertDecimals(decimals, IERC20(pendingToken).decimals(), rdiv(totalSupply, pendingUnit));
-        // if (_pie > 0)
-        //     require(doTransferFrom(pendingToken, msg.sender, address(this), _pie));
-
+    function confirmUpgrade() external auth {
+        require(upgradeTime <= now, "confirmUpgrade:  Too early to confirm upgrading!");
         token = pendingToken;
         unit = pendingUnit;
         minMintAmount = pendingMinMintAmount;
@@ -209,7 +205,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
      * @dev Authorized function to cancel upgrading.
      */
     function cancelUpgrade() public auth {
-        require(getTokenArrears() == 0, "cancelUpgrade: ");
+        require(getOutstanding() == 0, "cancelUpgrade: Add more current anchored asset!");
         upgradeTime = 0;
         pendingToken = address(0);
         pendingUnit = 0;
@@ -273,7 +269,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         }
     }
 
-    function transfer(address _src, address _dst, uint256 _wad) internal whenNotPaused unupgraded {
+    function transfer(address _src, address _dst, uint256 _wad) internal whenNotPaused notUpgrading {
         uint256 _fee = getFee(fee[msg.sig], _wad);
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_src] = balanceOf[_src].sub(_wad);
@@ -281,7 +277,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         emit Transfer(_src, _dst, _principle);
         if (_fee > 0) {
             balanceOf[feeRecipient] = balanceOf[feeRecipient].add(_fee);
-            emit Transfer(_src, feeRecipient, _fee);
+            emit FeeCollected(_src, feeRecipient, _fee);
         }
     }
 
@@ -293,8 +289,8 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
      * @param _dst Account who will get GoldX.
      * @param _pie Amount to mint, scaled by 1e18.
      */
-    function mint(address _dst, uint256 _pie) external whenNotPaused unupgraded nonReentrant {
-        require(!blacklists[msg.sender] && !blacklists[_dst], "mint: Address is frozen!" );
+    function mint(address _dst, uint256 _pie) external whenNotPaused notUpgrading nonReentrant {
+        require(!blacklists[msg.sender] && !blacklists[_dst], "mint: Address is frozen!");
         uint256 _balance = IERC20(token).balanceOf(address(this));
         require(doTransferFrom(token, msg.sender, address(this), _pie), "mint: TransferFrom failed!");
         uint256 _wad = rmul(
@@ -310,10 +306,10 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_dst] = balanceOf[_dst].add(_principle);
         totalSupply = totalSupply.add(_wad);
-        emit Transfer(address(0), _dst, _principle);
+        emit Mint( _dst, _principle);
         if (_fee > 0) {
             balanceOf[feeRecipient] = balanceOf[feeRecipient].add(_fee);
-            emit Transfer(address(0), feeRecipient, _fee);
+            emit FeeCollected(address(0), feeRecipient, _fee);
         }
     }
 
@@ -322,17 +318,17 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
      * @param _src Account who will burn GoldX.
      * @param _wad Amount to burn, scaled by 1e18.
      */
-    function burn(address _src, uint256 _wad) external whenNotPaused unupgraded {
+    function burn(address _src, uint256 _wad) external whenNotPaused notUpgrading {
         checkPrecondition(_src, msg.sender, _wad);
         require(_wad >= minBurnAmount, "burn: Do not satisfy min burning amount!");
         uint256 _fee = getFee(fee[msg.sig], _wad);
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_src] = balanceOf[_src].sub(_wad);
         totalSupply = totalSupply.sub(_principle);
-        emit Transfer(_src, address(0), _principle);
+        emit Burn(_src, _principle);
         if (_fee > 0) {
             balanceOf[feeRecipient] = balanceOf[feeRecipient].add(_fee);
-            emit Transfer(_src, feeRecipient, _fee);
+            emit FeeCollected(_src, feeRecipient, _fee);
         }
         uint256 _pie = getRedeemAmount(_principle);
         if (_pie > 0) {
@@ -382,20 +378,19 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     }
 
     /**
-     * @dev Gets arrearing amount when removes reserve but does not add enough reserve.
+     * @dev Gets outstanding amount.
      */
-    function getTokenArrears() public view returns (uint256) {
-        int256 _amount = getTokenArrearsAmount(token, unit);
+    function getOutstanding() public view returns (uint256) {
+        int256 _amount = getOutstanding(token, unit);
         return _amount > 0 ? uint256(_amount) : 0;
     }
 
     /**
-     * @dev Gets arrearing amount when removes reserve but does not add enough reserve
-     *      based on anchored asset`_token` and exchange rate`_uint`.
+     * @dev Gets outstanding amount based on anchored asset`_token` and exchange rate`_uint`.
      * @return int256 negative number means insufficient reserve.
      *          positive number means enough reserve.
      */
-    function getTokenArrearsAmount(address _token, uint256 _unit) public view returns (int256) {
+    function getOutstanding(address _token, uint256 _unit) public view returns (int256) {
         uint256 _amount = convertDecimals(
             decimals,
             IERC20(_token).decimals(),

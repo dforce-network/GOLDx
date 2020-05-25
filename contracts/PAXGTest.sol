@@ -2,7 +2,6 @@
  *Submitted for verification at Etherscan.io on 2019-08-29
 */
 
-import "./library/SafeMath.sol";
 
 // File: contracts/PAXGImplementation.sol
 
@@ -10,7 +9,7 @@ pragma solidity 0.5.16;
 // pragma experimental "v0.5.0";
 
 
-
+import "./library/SafeMath.sol";
 /**
  * @title PAXGImplementation
  * @dev this contract is a Pausable ERC20 token with Burn and Mint
@@ -43,7 +42,7 @@ contract PAXGImplementation {
     uint256 internal totalSupply_;
     string public constant name = "Paxos Gold"; // solium-disable-line
     string public constant symbol = "PAXG"; // solium-disable-line uppercase
-    uint8 public constant decimals = 18; // solium-disable-line uppercase
+    uint8 public decimals; // solium-disable-line uppercase
 
     // ERC20 DATA
     mapping(address => mapping(address => uint256)) internal allowed;
@@ -177,9 +176,10 @@ contract PAXGImplementation {
      * this serves as the constructor for the proxy but compiles to the
      * memory model of the Implementation contract.
      */
-    function initialize() public {
+    function initialize(uint8 _decimals) public {
         require(!initialized, "already initialized");
         owner = msg.sender;
+        decimals = _decimals;
         proposedOwner = address(0);
         assetProtectionRole = address(0);
         totalSupply_ = 0;
@@ -197,8 +197,8 @@ contract PAXGImplementation {
      * contract might lead to misleading state
      * for users who accidentally interact with it.
      */
-    constructor() public {
-        initialize();
+    constructor(uint8 _decimals) public {
+        initialize(_decimals);
         pause();
     }
 
