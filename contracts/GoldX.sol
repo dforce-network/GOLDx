@@ -193,7 +193,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
      * @dev Authorized function to confirm upgrading only when exceeds the upgrading time.
      */
     function confirmUpgrade() external auth {
-        require(upgradeTime <= now, "confirmUpgrade:  Too early to confirm upgrading!");
+        require(upgradeTime > 0 && upgradeTime <= now, "confirmUpgrade:  Too early to confirm upgrading!");
         token = pendingToken;
         unit = pendingUnit;
         minMintAmount = pendingMinMintAmount;
