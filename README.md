@@ -1,2 +1,2 @@
-# xGold
+# GOLDx
 wrapped gold token
