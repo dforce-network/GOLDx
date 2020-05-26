@@ -54,9 +54,9 @@ def new_paxg(PAXGImplementation, accounts):
     return paxg_contract
 
 @pytest.fixture(scope="module")
-def goldx(GoldX, paxg, accounts):
+def goldx(GOLDx, paxg, accounts):
     print(f'\n-------- deploy goldx contract --------')
-    glodx_contract = accounts[0].deploy(GoldX, "wrapped pax gold", "goldx", paxg.address)
+    glodx_contract = accounts[0].deploy(GOLDx, "wrapped pax gold", "goldx", paxg.address)
 
     print(f'before, min minting amount is: {glodx_contract.minMintAmount()}')
     glodx_contract.setMinMintAmount(0.001e18)

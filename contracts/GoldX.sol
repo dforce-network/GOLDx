@@ -5,7 +5,7 @@ import "./helpers/ReentrancyGuard.sol";
 import "./library/Pausable.sol";
 import "./library/SafeMath.sol";
 
-contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
+contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     using SafeMath for uint256;
 
     // --- ERC20 Data ---
@@ -87,7 +87,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     // ******************************
 
     /**
-     * @dev Authorized function to set a new exchange rate when wraps anchored asset to GoldX.
+     * @dev Authorized function to set a new exchange rate when wraps anchored asset to GOLDx.
      */
     function setUnit(uint256 _newUnit) external auth {
         require(_newUnit > 0, "setUnit: New unit should be greater than 0!");
@@ -96,7 +96,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     }
 
     /**
-     * @dev Authorized function to set the minimum valid amount when mints GoldX.
+     * @dev Authorized function to set the minimum valid amount when mints GOLDx.
      */
     function setMinMintAmount(uint256 _minMintAmount) external auth {
         require(_minMintAmount != minMintAmount,
@@ -105,7 +105,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     }
 
     /**
-     * @dev Authorized function to set the minimum valid amount when burns GoldX.
+     * @dev Authorized function to set the minimum valid amount when burns GOLDx.
      */
     function setMinBurnAmount(uint256 _minBurnAmount) external auth {
         require(_minBurnAmount != minBurnAmount,
@@ -158,7 +158,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
      * @dev Authorized function to set config for upgrading to new anchored asset.
      * @param _upgradeTime The timestamp when contract will upgrade protocol.
      * @param _token New anchored asset.
-     * @param _unit New exchange rate when wraps new anchored asset to GoldX.
+     * @param _unit New exchange rate when wraps new anchored asset to GOLDx.
      * @param _minMintAmount Minimum minting amount when uses the new anchored asset.
      * @param _minBurnAmount Minimum burning amount when uses the new anchored asset.
      */
@@ -285,8 +285,8 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     // **** Public functions ****
     // **************************
     /**
-     * @dev Wraps anchored asset to get GoldX.
-     * @param _dst Account who will get GoldX.
+     * @dev Wraps anchored asset to get GOLDx.
+     * @param _dst Account who will get GOLDx.
      * @param _pie Amount to mint, scaled by 1e18.
      */
     function mint(address _dst, uint256 _pie) external whenNotPaused notUpgrading nonReentrant {
@@ -315,7 +315,7 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
 
     /**
      * @dev Unwraps GlodX to get anchored asset.
-     * @param _src Account who will burn GoldX.
+     * @param _src Account who will burn GOLDx.
      * @param _wad Amount to burn, scaled by 1e18.
      */
     function burn(address _src, uint256 _wad) external whenNotPaused notUpgrading {
@@ -365,8 +365,8 @@ contract GoldX is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     }
 
     /**
-     * @dev Gets corresponding anchored asset based on the amount of GoldX.
-     * @param _wad Amount of GoldX, scaled by 1e18.
+     * @dev Gets corresponding anchored asset based on the amount of GOLDx.
+     * @param _wad Amount of GOLDx, scaled by 1e18.
      */
     function getRedeemAmount(uint256 _wad) public view returns (uint256) {
         return
