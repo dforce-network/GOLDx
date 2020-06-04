@@ -1,0 +1,27 @@
+const en_US = {
+  Wallet_Balance:'Wallet Balance',
+  Total_PAXG_in_Goldx: 'Total PAXG in Goldx',
+  PAXG_Total_Supply: 'PAXG Total Supply',
+  Goldx_Outstanding: 'Goldx Outstanding',
+  mint: 'Mint',
+  redeem: 'Redeem',
+  receive: 'Receive',
+  history: 'Recent Transactions',
+  swap: 'SWAP',
+  connect: 'Connect',
+  no_history: 'No History',
+  Contract_US: 'Contact',
+  Community: 'Community',
+  Resource: 'Resource',
+  Insufficient_Balance: 'Insufficient Balance',
+  Insufficient_Liquidity: 'Insufficient Liquidity',
+  balance: 'Balance',
+  Not_SUPPORTED: 'NOT SUPPORTED',
+  Exchange_Market: 'Trade',
+  dForce_Stablecoin: 'Assets',
+  Portal: 'An indexed stablecoin',
+  Instant_Swap_of_Stable_Assets: 'Stable assets swap',
+  DF_token_distribute_system: 'DF token distribution',
+  Governance: 'Governance'
+}
+export default en_US;
