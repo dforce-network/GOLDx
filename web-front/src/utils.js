@@ -146,6 +146,10 @@ export const click_mint = (that) => {
     return console.log('pls input number.');
   }
 
+  that.setState({
+    is_btn_disabled_mint: true
+  })
+
   // console.log('send: ', that.state.value_paxg_bn.toLocaleString(), 'receive: ', that.state.to_receive_goldx_bn.toLocaleString())
 
   if (!that.state.is_approve) {
@@ -163,9 +167,26 @@ export const click_mint = (that) => {
               if (res_hash) {
                 console.log(res_hash);
                 i_got_hash(that, 'mint', 'PAXG', that.state.value_paxg_bn.toLocaleString(), 'Goldx', that.state.to_receive_goldx_bn.toLocaleString(), res_hash, 'pendding');
+                that.setState({
+                  value_paxg: '',
+                  value_paxg_bn: '',
+                  to_receive_goldx: '',
+                  to_receive_goldx_bn: '',
+                  is_btn_disabled_mint: false
+                })
+              }
+              if (reject) {
+                that.setState({
+                  is_btn_disabled_mint: false
+                })
               }
             }
           )
+        }
+        if (reject) {
+          that.setState({
+            is_btn_disabled_mint: false
+          })
         }
       }
     )
@@ -179,6 +200,18 @@ export const click_mint = (that) => {
         if (res_hash) {
           console.log(res_hash);
           i_got_hash(that, 'mint', 'PAXG', that.state.value_paxg_bn.toLocaleString(), 'Goldx', that.state.to_receive_goldx_bn.toLocaleString(), res_hash, 'pendding');
+          that.setState({
+            value_paxg: '',
+            value_paxg_bn: '',
+            to_receive_goldx: '',
+            to_receive_goldx_bn: '',
+            is_btn_disabled_mint: false
+          })
+        }
+        if (reject) {
+          that.setState({
+            is_btn_disabled_mint: false
+          })
         }
       }
     )
@@ -188,6 +221,9 @@ export const click_redeem = (that) => {
   if (!that.state.value_goldx_bn) {
     return console.log('pls input number.');
   }
+  that.setState({
+    is_btn_disabled_redeem: true
+  })
 
 
   that.state.contract_GOLDx.methods.burn(that.state.my_account, that.state.value_goldx_bn).send(
@@ -198,6 +234,18 @@ export const click_redeem = (that) => {
       if (res_hash) {
         console.log(res_hash);
         i_got_hash(that, 'redeem', 'Goldx', that.state.value_goldx_bn.toLocaleString(), 'PAXG', that.state.to_receive_paxg_bn.toLocaleString(), res_hash, 'pendding');
+        that.setState({
+          value_goldx: '',
+          value_goldx_bn: '',
+          to_receive_paxg: '',
+          to_receive_paxg_bn: '',
+          is_btn_disabled_redeem: false
+        })
+      }
+      if (reject) {
+        that.setState({
+          is_btn_disabled_redeem: false
+        })
       }
     }
   )

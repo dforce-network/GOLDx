@@ -420,6 +420,8 @@ export default class Index extends React.Component<any, any> {
                   <div className={styles.pane_bottom}>
                     <Button
                       onClick={() => { click_mint(this) }}
+                      disabled={this.state.is_btn_disabled_mint}
+                      className={this.state.is_btn_disabled_mint ? styles.btn_disabled : ''}
                     >
                       MINT
                     </Button>
@@ -468,6 +470,8 @@ export default class Index extends React.Component<any, any> {
                   <div className={styles.pane_bottom}>
                     <Button
                       onClick={() => { click_redeem(this) }}
+                      disabled={this.state.is_btn_disabled_redeem}
+                      className={this.state.is_btn_disabled_redeem ? styles.btn_disabled : ''}
                     >
                       REDEEM
                     </Button>
