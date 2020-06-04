@@ -104,6 +104,13 @@ export const paxg_change = (that, value) => {
   if (!that.state.is_already) {
     return console.log('not already...');
   }
+  if (value.indexOf('.') > 0) {
+    var part2 = value.split('.')[1];
+    // console.log(part2);
+    if (part2.length > 6) {
+      return console.log('>6');
+    }
+  }
 
   that.setState({
     i_mint_max: false,
@@ -140,15 +147,27 @@ export const paxg_change = (that, value) => {
     value_paxg: value,
     value_paxg_bn: amount_bn,
     to_receive_goldx: format_bn(amount_to_receive_goldx, 18, 6),
-    to_receive_goldx_bn: amount_to_receive_goldx
+    to_receive_goldx_bn: amount_to_receive_goldx,
+    is_btn_disabled_mint: false
   }, () => {
     console.log('send: ', that.state.value_paxg_bn.toLocaleString(), 'receive: ', that.state.to_receive_goldx_bn.toLocaleString())
+    if (amount_bn.gt(that.bn(that.state.my_balance_paxg))) {
+      console.log('extends...');
+      paxg_click_max(that);
+    }
   })
 }
 export const paxg_click_max = (that) => {
   // console.log(that.state.my_balance_paxg);
   if (!that.state.my_balance_paxg) {
     return console.log('not get my_balance_paxg yet');
+  }
+
+  if (that.bn(that.state.my_balance_paxg).lte(that.bn(0))) {
+    console.log('balance is 0');
+    that.setState({
+      is_btn_disabled_mint: true
+    })
   }
 
   that.setState({
@@ -181,6 +200,12 @@ export const paxg_click_max = (that) => {
 export const goldx_change = (that, value) => {
   if (!that.state.is_already) {
     return console.log('not already...');
+  }
+  if (value.indexOf('.') > 0) {
+    var part2 = value.split('.')[1];
+    if (part2.length > 6) {
+      return console.log('>6');
+    }
   }
 
   that.setState({
@@ -218,15 +243,27 @@ export const goldx_change = (that, value) => {
     value_goldx: value,
     value_goldx_bn: amount_bn,
     to_receive_paxg: format_bn(amount_to_receive_paxg, 18, 6),
-    to_receive_paxg_bn: amount_to_receive_paxg
+    to_receive_paxg_bn: amount_to_receive_paxg,
+    is_btn_disabled_redeem: false
   }, () => {
     console.log('send: ', that.state.value_goldx_bn.toLocaleString(), 'receive: ', that.state.to_receive_paxg_bn.toLocaleString())
+    if (amount_bn.gt(that.bn(that.state.my_balance_goldx))) {
+      console.log('extends...');
+      goldx_click_max(that);
+    }
   })
 }
 export const goldx_click_max = (that) => {
   // console.log(that.state.my_balance_goldx);
   if (!that.state.my_balance_goldx) {
     return console.log('not get my_balance_goldx yet');
+  }
+
+  if (that.bn(that.state.my_balance_goldx).lte(that.bn(0))) {
+    console.log('balance is 0');
+    that.setState({
+      is_btn_disabled_redeem: true
+    })
   }
 
   that.setState({
