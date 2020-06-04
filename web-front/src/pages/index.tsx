@@ -26,7 +26,11 @@ import {
   click_mint,
   getBaseData,
   goldx_change,
-  click_redeem
+  click_redeem,
+  paxg_click_max,
+  goldx_click_max,
+  calc_rate,
+  calc_rate_plus
 } from '../utils.js';
 import logo_goldx from '../images/logo_goldx.svg';
 import logo_paxg from '../images/logo_paxg.svg';
@@ -109,6 +113,9 @@ export default class Index extends React.Component<any, any> {
       totalSupply_goldx: totalSupply_goldx,
       balanceOf_paxg: balanceOf_paxg,
       BaseData: BaseData
+    }, () => {
+      calc_rate(this);
+      calc_rate_plus(this);
     })
 
 
@@ -394,12 +401,14 @@ export default class Index extends React.Component<any, any> {
                           value={this.state.value_paxg}
                           onChange={(e) => { paxg_change(this, e.target.value) }}
                         />
-                        <span className={styles.span_max}>MAX</span>
+                        <span className={styles.span_max} onClick={(e) => { paxg_click_max(this) }}>
+                          MAX
+                        </span>
                       </div>
 
                       <div className={styles.sec1_rate}>
-                        1 PAXG = 31.1034768 Goldx
-                  </div>
+                        1 PAXG = {this.state.paxg_to_goldx ? format_bn(this.state.paxg_to_goldx, 18, 6) : '...'} Goldx
+                      </div>
                     </div>
 
                     <div className={styles.sec2}>
@@ -444,11 +453,13 @@ export default class Index extends React.Component<any, any> {
                           value={this.state.value_goldx}
                           onChange={(e) => { goldx_change(this, e.target.value) }}
                         />
-                        <span className={styles.span_max}>MAX</span>
+                        <span className={styles.span_max} onClick={(e) => { goldx_click_max(this) }}>
+                          MAX
+                        </span>
                       </div>
 
                       <div className={styles.sec1_rate}>
-                        1 Goldx = 31.1034768 PAXG
+                        1 Goldx = {this.state.goldx_to_paxg ? format_bn(this.state.goldx_to_paxg, 18, 6) : '...'} PAXG
                       </div>
                     </div>
 
@@ -519,7 +530,7 @@ export default class Index extends React.Component<any, any> {
                 <FormattedMessage id='Goldx_Outstanding' />
               </span>
               <span className={styles.balance_right}>
-                {this.state.totalSupply_paxg ? format_num_to_K(format_bn(this.state.totalSupply_paxg, 18, 2)) : '...'}
+                {this.state.totalSupply_goldx ? format_num_to_K(format_bn(this.state.totalSupply_goldx, 18, 2)) : '...'}
               </span>
             </div>
             <div className={styles.balance}>
@@ -527,7 +538,7 @@ export default class Index extends React.Component<any, any> {
                 <FormattedMessage id='PAXG_Total_Supply' />
               </span>
               <span className={styles.balance_right}>
-                {this.state.totalSupply_goldx ? format_num_to_K(format_bn(this.state.totalSupply_goldx, 18, 2)) : '...'}
+                {this.state.totalSupply_paxg ? format_num_to_K(format_bn(this.state.totalSupply_paxg, 18, 2)) : '...'}
               </span>
             </div>
             <div className={styles.balance}>

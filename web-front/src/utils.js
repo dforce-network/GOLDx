@@ -3,6 +3,52 @@ import token_abi from './abi/erc20abi.json';
 import address_map from './abi/address_map.json';
 
 
+
+export const calc_rate = (that) => {
+  var amount_bn = that.bn(10).pow(that.bn(18));
+
+  var base_data_6 = that.state.BaseData[6];
+  var base_data_5 = that.state.BaseData[5];
+  var base_data_3 = that.state.BaseData[3];
+  var base_data_2 = that.state.BaseData[2];
+  var base_data_1 = that.state.BaseData[1];
+  var base_data_0 = that.state.BaseData[0];
+  var amount_to_receive_goldx = amount_bn.sub(amount_bn.mul(that.bn(base_data_6)).div(that.bn(base_data_5)));
+  if (that.bn(base_data_2).gt(that.bn(base_data_1))) {
+    amount_to_receive_goldx = amount_to_receive_goldx.div(that.bn(10).pow(that.bn(base_data_2).sub(that.bn(base_data_1))));
+  } else {
+    amount_to_receive_goldx = amount_to_receive_goldx.mul(that.bn(10).pow(that.bn(base_data_1).sub(that.bn(base_data_2))));
+  }
+  amount_to_receive_goldx = amount_to_receive_goldx.mul(that.bn(base_data_0)).div(that.bn(10).pow(that.bn(18)));
+  amount_to_receive_goldx = amount_to_receive_goldx.sub(amount_to_receive_goldx.mul(that.bn(base_data_3)).div(that.bn(10).pow(that.bn(18))));
+
+  that.setState({
+    paxg_to_goldx: amount_to_receive_goldx
+  })
+}
+export const calc_rate_plus = (that) => {
+  var amount_bn = that.bn(10).pow(that.bn(18));
+
+  var base_data_6 = that.state.BaseData[6];
+  var base_data_5 = that.state.BaseData[5];
+  var base_data_4 = that.state.BaseData[4];
+  var base_data_2 = that.state.BaseData[2];
+  var base_data_1 = that.state.BaseData[1];
+  var base_data_0 = that.state.BaseData[0];
+  var amount_to_receive_paxg = amount_bn.sub(amount_bn.mul(that.bn(base_data_4)).div(that.bn(10).pow(that.bn(18))));
+  amount_to_receive_paxg = amount_to_receive_paxg.mul(that.bn(10).pow(that.bn(18))).div(that.bn(base_data_0));
+  if (that.bn(base_data_1).gt(that.bn(base_data_2))) {
+    amount_to_receive_paxg = amount_to_receive_paxg.div(that.bn(10).pow(that.bn(base_data_1).sub(that.bn(base_data_2))))
+  } else {
+    amount_to_receive_paxg = amount_to_receive_paxg.mul(that.bn(10).pow(that.bn(base_data_2).sub(that.bn(base_data_1))))
+  }
+  amount_to_receive_paxg = amount_to_receive_paxg.sub(that.bn(amount_to_receive_paxg).mul(that.bn(base_data_6)).div(that.bn(base_data_5)))
+
+  that.setState({
+    goldx_to_paxg: amount_to_receive_paxg
+  })
+}
+
 export const getBaseData = (contract) => {
   return new Promise((resolve, reject) => {
     contract.methods.getBaseData().call((err, res_BaseData) => {
@@ -10,9 +56,6 @@ export const getBaseData = (contract) => {
     });
   })
 }
-
-
-
 
 export const get_balanceOf = (contract, nettype) => {
   return new Promise((resolve, reject) => {
@@ -25,6 +68,7 @@ export const get_balanceOf = (contract, nettype) => {
 export const get_totalSupply = (contract) => {
   return new Promise((resolve, reject) => {
     contract.methods.totalSupply().call((err, res_totalSupply) => {
+      // console.log(res_totalSupply);
       resolve(res_totalSupply);
     });
   })
@@ -60,6 +104,10 @@ export const paxg_change = (that, value) => {
   if (!that.state.is_already) {
     return console.log('not already...');
   }
+
+  that.setState({
+    i_mint_max: false,
+  })
 
   var amount_bn;
   var temp_value = value;
@@ -97,10 +145,47 @@ export const paxg_change = (that, value) => {
     console.log('send: ', that.state.value_paxg_bn.toLocaleString(), 'receive: ', that.state.to_receive_goldx_bn.toLocaleString())
   })
 }
+export const paxg_click_max = (that) => {
+  // console.log(that.state.my_balance_paxg);
+  if (!that.state.my_balance_paxg) {
+    return console.log('not get my_balance_paxg yet');
+  }
+
+  that.setState({
+    i_mint_max: true,
+  })
+
+  var amount_bn = that.bn(that.state.my_balance_paxg);
+  var base_data_6 = that.state.BaseData[6];
+  var base_data_5 = that.state.BaseData[5];
+  var base_data_3 = that.state.BaseData[3];
+  var base_data_2 = that.state.BaseData[2];
+  var base_data_1 = that.state.BaseData[1];
+  var base_data_0 = that.state.BaseData[0];
+  var amount_to_receive_goldx = amount_bn.sub(amount_bn.mul(that.bn(base_data_6)).div(that.bn(base_data_5)));
+  if (that.bn(base_data_2).gt(that.bn(base_data_1))) {
+    amount_to_receive_goldx = amount_to_receive_goldx.div(that.bn(10).pow(that.bn(base_data_2).sub(that.bn(base_data_1))));
+  } else {
+    amount_to_receive_goldx = amount_to_receive_goldx.mul(that.bn(10).pow(that.bn(base_data_1).sub(that.bn(base_data_2))));
+  }
+  amount_to_receive_goldx = amount_to_receive_goldx.mul(that.bn(base_data_0)).div(that.bn(10).pow(that.bn(18)));
+  amount_to_receive_goldx = amount_to_receive_goldx.sub(amount_to_receive_goldx.mul(that.bn(base_data_3)).div(that.bn(10).pow(that.bn(18))));
+
+  that.setState({
+    value_paxg: format_bn(that.state.my_balance_paxg, 18, 6),
+    value_paxg_bn: that.state.my_balance_paxg,
+    to_receive_goldx: format_bn(amount_to_receive_goldx, 18, 6),
+    to_receive_goldx_bn: amount_to_receive_goldx
+  })
+}
 export const goldx_change = (that, value) => {
   if (!that.state.is_already) {
     return console.log('not already...');
   }
+
+  that.setState({
+    i_redeem_max: false,
+  })
 
   var amount_bn;
   var temp_value = value;
@@ -136,6 +221,39 @@ export const goldx_change = (that, value) => {
     to_receive_paxg_bn: amount_to_receive_paxg
   }, () => {
     console.log('send: ', that.state.value_goldx_bn.toLocaleString(), 'receive: ', that.state.to_receive_paxg_bn.toLocaleString())
+  })
+}
+export const goldx_click_max = (that) => {
+  // console.log(that.state.my_balance_goldx);
+  if (!that.state.my_balance_goldx) {
+    return console.log('not get my_balance_goldx yet');
+  }
+
+  that.setState({
+    i_redeem_max: true
+  })
+
+  var amount_bn = that.bn(that.state.my_balance_goldx);
+  var base_data_6 = that.state.BaseData[6];
+  var base_data_5 = that.state.BaseData[5];
+  var base_data_4 = that.state.BaseData[4];
+  var base_data_2 = that.state.BaseData[2];
+  var base_data_1 = that.state.BaseData[1];
+  var base_data_0 = that.state.BaseData[0];
+  var amount_to_receive_paxg = amount_bn.sub(amount_bn.mul(that.bn(base_data_4)).div(that.bn(10).pow(that.bn(18))));
+  amount_to_receive_paxg = amount_to_receive_paxg.mul(that.bn(10).pow(that.bn(18))).div(that.bn(base_data_0));
+  if (that.bn(base_data_1).gt(that.bn(base_data_2))) {
+    amount_to_receive_paxg = amount_to_receive_paxg.div(that.bn(10).pow(that.bn(base_data_1).sub(that.bn(base_data_2))))
+  } else {
+    amount_to_receive_paxg = amount_to_receive_paxg.mul(that.bn(10).pow(that.bn(base_data_2).sub(that.bn(base_data_1))))
+  }
+  amount_to_receive_paxg = amount_to_receive_paxg.sub(that.bn(amount_to_receive_paxg).mul(that.bn(base_data_6)).div(that.bn(base_data_5)))
+
+  that.setState({
+    value_goldx: format_bn(that.state.my_balance_goldx, 18, 6),
+    value_goldx_bn: that.state.my_balance_goldx,
+    to_receive_paxg: format_bn(amount_to_receive_paxg, 18, 6),
+    to_receive_paxg_bn: amount_to_receive_paxg
   })
 }
 
