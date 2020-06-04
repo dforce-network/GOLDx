@@ -12,7 +12,7 @@ const en_US = {
   no_history: '没有历史记录',
   Contract_US: '联系我们',
   Community: '社区',
-  Resource: '开发者',
+  Resource: '资源',
   Insufficient_Balance: '余额不足',
   Insufficient_Liquidity: '流动性不足',
   balance: '余额',

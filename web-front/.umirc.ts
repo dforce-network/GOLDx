@@ -6,8 +6,8 @@ export default defineConfig({
     },
     routes: [
         { path: '/user', title: 'user', component: '@/pages/user' },
-        { path: '/', title: 'index', exact: false, component: '@/pages/index' },
+        { path: '/', title: 'dForce GOLDx', exact: false, component: '@/pages/index' },
     ],
     hash: true,
-    title: 'GOLDx',
+    title: 'dForce GOLDx',
 })

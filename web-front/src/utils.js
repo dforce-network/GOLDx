@@ -296,15 +296,18 @@ export const goldx_click_max = (that) => {
 
 // btn click
 export const click_mint = (that) => {
-  var max_num = that.bn(2).pow(that.bn(256)).sub(that.bn(1));
   if (!that.state.value_paxg_bn) {
     return console.log('pls input number.');
+  }
+  if (Number(that.state.value_paxg) === 0) {
+    return console.log('u input number 0.');
   }
 
   that.setState({
     is_btn_disabled_mint: true
   })
 
+  var max_num = that.bn(2).pow(that.bn(256)).sub(that.bn(1));
   // console.log('send: ', that.state.value_paxg_bn.toLocaleString(), 'receive: ', that.state.to_receive_goldx_bn.toLocaleString())
 
   if (!that.state.is_approve) {
@@ -376,6 +379,10 @@ export const click_redeem = (that) => {
   if (!that.state.value_goldx_bn) {
     return console.log('pls input number.');
   }
+  if (Number(that.state.value_goldx) === 0) {
+    return console.log('u input number 0.');
+  }
+
   that.setState({
     is_btn_disabled_redeem: true
   })

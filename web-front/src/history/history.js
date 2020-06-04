@@ -165,9 +165,9 @@ export default class RecordBoard extends Component {
                   <div className="history-item-right">
                     <div className="history-item-right-top">
                       <span className='tx_date'>
-                        {moment(item.timestamp).format('MMM. DD, HH:mm')}
+                        {moment(item.timestamp).format('HH:mm:ss YYYY/MM/DD')}
                       </span>
-                      <span className='tx_hash' onClick={() => this.goTxnHashHref(item.hash)}>
+                      <span className='tx_hash' onClick={() => this.goTxnHashHref(item.hash)} style={{ fontStyle: 'italic' }}>
                         {item.hash.slice(0, 6) + '...' + item.hash.slice(-4)}
                       </span>
                     </div>
