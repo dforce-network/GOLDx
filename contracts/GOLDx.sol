@@ -4,6 +4,7 @@ import "./helpers/ERC20SafeTransfer.sol";
 import "./helpers/ReentrancyGuard.sol";
 import "./library/Pausable.sol";
 import "./library/SafeMath.sol";
+import "./interface/IPAXG.sol";
 
 contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     using SafeMath for uint256;
@@ -306,9 +307,11 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_dst] = balanceOf[_dst].add(_principle);
         totalSupply = totalSupply.add(_wad);
+        emit Transfer(address(0), _dst, _principle);
         emit Mint( _dst, _principle);
         if (_fee > 0) {
             balanceOf[feeRecipient] = balanceOf[feeRecipient].add(_fee);
+            emit Transfer(address(0), feeRecipient, _fee);
             emit FeeCollected(address(0), feeRecipient, _fee);
         }
     }
@@ -325,9 +328,11 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_src] = balanceOf[_src].sub(_wad);
         totalSupply = totalSupply.sub(_principle);
+        emit Transfer(_src, address(0), _principle);
         emit Burn(_src, _principle);
         if (_fee > 0) {
             balanceOf[feeRecipient] = balanceOf[feeRecipient].add(_fee);
+            emit Transfer(_src, feeRecipient, _fee);
             emit FeeCollected(_src, feeRecipient, _fee);
         }
         uint256 _pie = getRedeemAmount(_principle);
@@ -423,5 +428,17 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
             return _amount / 10**_srcDecimals.sub(_dstDecimals);
 
         return _amount.mul(10**_dstDecimals.sub(_srcDecimals));
+    }
+
+    function getBaseData() external view returns (uint256, uint256, uint256, uint256, uint256, uint256, uint256) {
+        return (
+            unit,
+            decimals,
+            IERC20(token).decimals(),
+            fee[0x40c10f19],
+            fee[0x9dc29fac],
+            IPAXG(token).feeParts(),
+            IPAXG(token).feeRate()
+        );
     }
 }
