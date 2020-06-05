@@ -49,6 +49,8 @@ import logo_goldx_log from '../images/logo-goldx.svg';
 import arrow_d from '../images/arrow_d.svg';
 import wallet_metamask from '../images/wallet-metamask.svg';
 import isMobile from 'is-mobile';
+import close_new from '../images/close-new.svg';
+import close from '../images/close.svg';
 
 const { TabPane } = Tabs;
 
@@ -67,7 +69,10 @@ export default class Index extends React.Component<any, any> {
 
     this.state = {
       cur_language: navigator.language === 'zh-CN' ? '中文' : 'English',
-      is_already: false
+      is_already: false,
+      meun1: true,
+      meun2: true,
+      meun3: true,
     }
 
     this.new_web3 = new Web3(Web3.givenProvider || null);
@@ -280,6 +285,80 @@ export default class Index extends React.Component<any, any> {
         </Modal>
 
 
+        {/* *** *** *** *** *** *** mobile *** *** *** *** *** *** */}
+        <div className='wrap-mob'>
+          <div className='only-left'>
+            <img src={logo_goldx_log} alt='' />
+          </div>
+          <div className='only-right'>
+            <img src={close} alt='' onClick={() => { this.setState({ showonly: true }) }} />
+          </div>
+          <div className='clear'></div>
+        </div>
+
+        <div className={this.state.showonly ? 'mobile-only' : 'disn'}>
+          <div className='wrap-mob'>
+            <div className='only-left'>
+              <img src={logo_goldx_log} alt='' />
+            </div>
+            <div className='only-right'>
+              <img src={close_new} alt='' onClick={() => { this.setState({ showonly: false }) }} />
+            </div>
+            <div className='clear'></div>
+          </div>
+          <div className='only-kong'></div>
+
+          <h1 onClick={() => { this.setState({ meun1: !this.state.meun1 }) }}>
+            <FormattedMessage id='dForce_Stablecoin' />
+            <span>
+              <img src={this.state.meun1 ? arrow_u : arrow_d} />
+            </span>
+          </h1>
+          <div className={this.state.meun1 ? 'meun1' : 'only1px'}>
+            <div className='m-item'>
+              <a href='https://usdx.dforce.network/' target='_blank' rel="noopener noreferrer">
+                <span className='title'>USDx</span>
+              </a>
+              <span className='details'><FormattedMessage id='Portal' /></span>
+            </div>
+          </div>
+
+          <h1 onClick={() => { this.setState({ meun2: !this.state.meun2 }) }}>
+            <FormattedMessage id='Exchange_Market' />
+            <span>
+              <img src={this.state.meun2 ? arrow_u : arrow_d} />
+            </span>
+          </h1>
+          <div className={this.state.meun2 ? 'meun1' : 'only1px'}>
+            <div className='m-item'>
+              <a href='https://trade.dforce.network/' target='_blank' rel="noopener noreferrer">
+                <span className='title'>dForce Trade</span>
+              </a>
+              <span className='details'><FormattedMessage id='Instant_Swap_of_Stable_Assets' /></span>
+            </div>
+          </div>
+
+          <h1 onClick={() => { this.setState({ meun3: !this.state.meun3 }) }}>
+            <FormattedMessage id='Governance' />
+            <span>
+              <img src={this.state.meun3 ? arrow_u : arrow_d} />
+            </span>
+          </h1>
+          <div className={this.state.meun3 ? 'meun1' : 'only1px'}>
+            <div className='m-item'>
+              <a href='https://airdrop.dforce.network/' rel="noopener noreferrer">
+                <span className='title'>Airdrop</span>
+              </a>
+              <span className='details'>
+                <FormattedMessage id='DF_token_distribute_system' />
+              </span>
+            </div>
+          </div>
+
+        </div>
+        {/* *** *** *** *** *** *** mobile *** *** *** *** *** *** */}
+
+
         <div className={'header'}>
           <a href="/" className={'header__logo'}>
             <img src={logo_goldx_log} alt="logo" />
@@ -380,6 +459,33 @@ export default class Index extends React.Component<any, any> {
 
 
         <div className={styles.content}>
+          <div className={styles.content_top_mobile}>
+            <div className={styles.balance_mobile}>
+              <span className={styles.balance_left}>
+                <FormattedMessage id='Goldx_Outstanding' />
+              </span>
+              <span className={styles.balance_right}>
+                {this.state.totalSupply_goldx ? format_num_to_K(format_bn(this.state.totalSupply_goldx, 18, 2)) : '...'}
+              </span>
+            </div>
+            <div className={styles.balance_mobile}>
+              <span className={styles.balance_left}>
+                <FormattedMessage id='PAXG_Total_Supply' />
+              </span>
+              <span className={styles.balance_right}>
+                {this.state.totalSupply_paxg ? format_num_to_K(format_bn(this.state.totalSupply_paxg, 18, 2)) : '...'}
+              </span>
+            </div>
+            <div className={styles.balance_mobile}>
+              <span className={styles.balance_left}>
+                <FormattedMessage id='Total_PAXG_in_Goldx' />
+              </span>
+              <span className={styles.balance_right}>
+                {this.state.balanceOf_paxg ? format_num_to_K(format_bn(this.state.balanceOf_paxg, 18, 2)) : '...'}
+              </span>
+            </div>
+          </div>
+
           <div className={styles.content_left}>
             <div className={styles.content_left_top}>
               <Tabs
@@ -392,6 +498,12 @@ export default class Index extends React.Component<any, any> {
                       <div className={styles.sec1_token}>
                         <img src={logo_paxg} alt="" />
                         <span className={styles.span_token}>PAXG</span>
+                        <span className={styles.mobile_balance}>
+                          <FormattedMessage id='balance' />
+                          <span className={styles.mobile_balance_num}>
+                            {this.state.my_balance_paxg ? format_num_to_K(format_bn(this.state.my_balance_paxg, 18, 2)) : '...'}
+                          </span>
+                        </span>
                       </div>
 
                       <div className={styles.sec1_input}>
@@ -419,6 +531,12 @@ export default class Index extends React.Component<any, any> {
                       <div className={styles.sec1_token}>
                         <img src={logo_goldx} alt="" />
                         <span className={styles.span_token}>Goldx</span>
+                        <span className={styles.mobile_balance}>
+                          <FormattedMessage id='balance' />
+                          <span className={styles.mobile_balance_num}>
+                            {this.state.my_balance_goldx ? format_num_to_K(format_bn(this.state.my_balance_goldx, 18, 2)) : '...'}
+                          </span>
+                        </span>
                       </div>
                       <div className={styles.sec1_input}>
                         <Input type="number" disabled={true} value={this.state.to_receive_goldx} placeholder='0.00' />
@@ -444,6 +562,12 @@ export default class Index extends React.Component<any, any> {
                       <div className={styles.sec1_token}>
                         <img src={logo_goldx} alt="" />
                         <span className={styles.span_token}>Goldx</span>
+                        <span className={styles.mobile_balance}>
+                          <FormattedMessage id='balance' />
+                          <span className={styles.mobile_balance_num}>
+                            {this.state.my_balance_goldx ? format_num_to_K(format_bn(this.state.my_balance_goldx, 18, 2)) : '...'}
+                          </span>
+                        </span>
                       </div>
 
                       <div className={styles.sec1_input}>
@@ -471,6 +595,12 @@ export default class Index extends React.Component<any, any> {
                       <div className={styles.sec1_token}>
                         <img src={logo_paxg} alt="" />
                         <span className={styles.span_token}>PAXG</span>
+                        <span className={styles.mobile_balance}>
+                          <FormattedMessage id='balance' />
+                          <span className={styles.mobile_balance_num}>
+                            {this.state.my_balance_paxg ? format_num_to_K(format_bn(this.state.my_balance_paxg, 18, 2)) : '...'}
+                          </span>
+                        </span>
                       </div>
                       <div className={styles.sec1_input}>
                         <Input type="number" disabled={true} value={this.state.to_receive_paxg} placeholder='0.00' />
