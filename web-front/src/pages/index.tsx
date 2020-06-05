@@ -7,8 +7,8 @@ import tips from '../cssdir/tips.less';
 import 'antd/dist/antd.css';
 import { Tabs, Button, Input, Dropdown, Menu, Modal } from 'antd';
 import { IntlProvider, FormattedMessage } from 'react-intl';
-import en_US from '../language/en_US';
-import zh_CN from '../language/zh_CN';
+import en_US from '../language/en_US.js';
+import zh_CN from '../language/zh_CN.js';
 import History from '../history/history.js';
 import Web3 from 'web3';
 import {
