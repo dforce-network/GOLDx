@@ -689,7 +689,7 @@ export default class Index extends React.Component<any, any> {
               <FormattedMessage id='Resource' />
             </div>
             <div className="foot-item-content">
-              <a href='https://github.com/dforce-network/xswap.git' target='_blank' rel="noopener noreferrer">
+              <a href='https://github.com/dforce-network/GOLDx' target='_blank' rel="noopener noreferrer">
                 GitHub
                 </a>
             </div>
