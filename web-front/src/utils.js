@@ -52,6 +52,7 @@ export const calc_rate_plus = (that) => {
 export const getBaseData = (contract) => {
   return new Promise((resolve, reject) => {
     contract.methods.getBaseData().call((err, res_BaseData) => {
+      // console.log(res_BaseData);
       resolve(res_BaseData);
     });
   })
