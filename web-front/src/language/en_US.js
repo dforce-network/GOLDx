@@ -1,8 +1,8 @@
 const en_US = {
   Wallet_Balance:'Wallet Balance',
-  Total_PAXG_in_Goldx: 'Total PAXG in Goldx',
+  Total_PAXG_in_Goldx: 'Total PAXG in GOLDx',
   PAXG_Total_Supply: 'PAXG Total Supply',
-  Goldx_Outstanding: 'Goldx Outstanding',
+  Goldx_Outstanding: 'GOLDx Outstanding',
   mint: 'Mint',
   redeem: 'Redeem',
   receive: 'Receive',

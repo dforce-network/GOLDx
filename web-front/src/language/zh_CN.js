@@ -1,8 +1,8 @@
 const en_US = {
   Wallet_Balance: '钱包',
-  Total_PAXG_in_Goldx: 'Goldx中PAXG锁定量',
+  Total_PAXG_in_Goldx: 'GOLDx中PAXG锁定量',
   PAXG_Total_Supply: 'PAXG 总量',
-  Goldx_Outstanding: 'Goldx 总量',
+  Goldx_Outstanding: 'GOLDx 总量',
   mint: '存入',
   redeem: '取回',
   receive: '接收',

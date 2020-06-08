@@ -519,7 +519,7 @@ export default class Index extends React.Component<any, any> {
                       </div>
 
                       <div className={styles.sec1_rate}>
-                        1 PAXG = {this.state.paxg_to_goldx ? format_bn(this.state.paxg_to_goldx, 18, 6) : '...'} Goldx
+                        1 PAXG = {this.state.paxg_to_goldx ? format_bn(this.state.paxg_to_goldx, 18, 6) : '...'} GOLDx
                       </div>
                     </div>
 
@@ -530,7 +530,7 @@ export default class Index extends React.Component<any, any> {
                     <div className={styles.sec1}>
                       <div className={styles.sec1_token}>
                         <img src={logo_goldx} alt="" />
-                        <span className={styles.span_token}>Goldx</span>
+                        <span className={styles.span_token}>GOLDx</span>
                         <span className={styles.mobile_balance}>
                           <FormattedMessage id='balance' />
                           <span className={styles.mobile_balance_num}>
@@ -561,7 +561,7 @@ export default class Index extends React.Component<any, any> {
                     <div className={styles.sec1}>
                       <div className={styles.sec1_token}>
                         <img src={logo_goldx} alt="" />
-                        <span className={styles.span_token}>Goldx</span>
+                        <span className={styles.span_token}>GOLDx</span>
                         <span className={styles.mobile_balance}>
                           <FormattedMessage id='balance' />
                           <span className={styles.mobile_balance_num}>
@@ -572,7 +572,7 @@ export default class Index extends React.Component<any, any> {
 
                       <div className={styles.sec1_input}>
                         <Input
-                          placeholder={'Amount in Goldx'}
+                          placeholder={'Amount in GOLDx'}
                           type="number"
                           value={this.state.value_goldx}
                           onChange={(e) => { goldx_change(this, e.target.value) }}
@@ -583,7 +583,7 @@ export default class Index extends React.Component<any, any> {
                       </div>
 
                       <div className={styles.sec1_rate}>
-                        1 Goldx = {this.state.goldx_to_paxg ? format_bn(this.state.goldx_to_paxg, 18, 6) : '...'} PAXG
+                        1 GOLDx = {this.state.goldx_to_paxg ? format_bn(this.state.goldx_to_paxg, 18, 6) : '...'} PAXG
                       </div>
                     </div>
 
