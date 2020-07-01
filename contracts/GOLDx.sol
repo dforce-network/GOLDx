@@ -236,16 +236,6 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         emit Transfer(_address, address(0), _balance);
     }
 
-    /**
-     * @dev Authorized function to transfer token out.
-     * @param _token Reserve asset.
-     * @param _recipient Account to receive asset.
-     * @param _amount Transfer amount.
-     */
-    function transferOut(address _token, address _recipient, uint256 _amount) external auth {
-        require(doTransferOut(_token, _recipient, _amount), "transferOut: Transfer out failed!");
-    }
-
     // --- Math ---
     function rmul(uint256 x, uint256 y) internal pure returns (uint256 z) {
         z = x.mul(y) / ONE;
@@ -308,7 +298,7 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         balanceOf[_dst] = balanceOf[_dst].add(_principle);
         totalSupply = totalSupply.add(_wad);
         emit Transfer(address(0), _dst, _principle);
-        emit Mint( _dst, _principle);
+        emit Mint(_dst, _principle);
         if (_fee > 0) {
             balanceOf[feeRecipient] = balanceOf[feeRecipient].add(_fee);
             emit Transfer(address(0), feeRecipient, _fee);
