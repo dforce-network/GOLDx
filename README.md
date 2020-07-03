@@ -2,7 +2,7 @@
 wrapped gold token
 
 # Audit Scope
-- GOLDxProxy.sol
+- GOLDxProxy.sol (Audited Version by Peckshield)
 - GOLDx.sol
 
 # Audit Target
