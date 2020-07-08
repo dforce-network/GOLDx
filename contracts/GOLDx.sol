@@ -170,7 +170,7 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         uint256 _minMintAmount,
         uint256 _minBurnAmount
     ) external auth {
-        require(_upgradeTime > 0, "upgradeProtocol: Upgrading time should be greater than 0!");
+        require(_upgradeTime > now, "upgradeProtocol: Upgrading time should be greater than now!");
         require(_token != address(0), "upgradeProtocol: New anchored asset should not be zero address!");
         upgradeTime = _upgradeTime;
         pendingToken = _token;
