@@ -420,7 +420,7 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
         return _amount.mul(10**_dstDecimals.sub(_srcDecimals));
     }
 
-    function getBaseData() external view returns (uint256, uint256, uint256, uint256, uint256, uint256, uint256) {
+    function getBaseData() external view returns (uint256, uint256, uint256, uint256, uint256, uint256, uint256, bool) {
         return (
             unit,
             decimals,
@@ -428,7 +428,8 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
             fee[0x40c10f19],
             fee[0x9dc29fac],
             IPAXG(token).feeParts(),
-            IPAXG(token).feeRate()
+            IPAXG(token).feeRate(),
+            paused || (upgradeTime > 0 && upgradeTime <= now)
         );
     }
 }
