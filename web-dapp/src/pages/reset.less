@@ -75,8 +75,35 @@ body {
 }
 
 
-.ant-tabs-tab.ant-tabs-tab-active {
+.ant-tabs-tab {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #E5E6F2;
+    bottom: 0px;
+  }
+
+  .ant-tabs-tab-btn {
+    width: 100%;
+    text-align: center !important;
+  }
+}
+
+.ant-tabs-tab:nth-child(2) {
+  margin-right: 0;
+}
+
+.ant-tabs-tab-active {
   color: #675cff !important;
+}
+
+.ant-tabs-ink-bar {
+  background-color: red !important;
 }
 
 .ant-tabs-ink-bar,
