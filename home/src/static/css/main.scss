@@ -146,7 +146,7 @@
       .svgbg {
         width: 1920px;
         height: 587px;
-        background-image: url(../../static/img/banner.svg);
+        background-image: url(../img/banner.svg);
         background-repeat: no-repeat;
         position: absolute;
         left: 50%;
@@ -220,6 +220,7 @@
       a {
         display: block;
       }
+
       .trans_warp {
         width: 1200px;
         display: flex;
@@ -231,7 +232,7 @@
         .top {
           width: 100%;
           height: 232px;
-          background-image: url(../../static/img/transaction.svg);
+          background-image: url(../img/transaction.svg);
           background-size: 100% 100%;
           background-position: center;
         }
@@ -508,6 +509,7 @@
             .icon {
               display: flex;
               justify-content: flex-start;
+
               li {
                 float: left;
                 margin-right: 10px;
@@ -936,10 +938,12 @@
 
               .icon {
                 flex-wrap: wrap;
+
                 li {
                   float: left;
                   margin: 0 10px 10px 0;
                 }
+
                 .wxCode {
                   .code {
                     width: 4em;
@@ -947,6 +951,7 @@
                     top: -4.5em;
                   }
                 }
+
                 svg {
                   width: 2.4em;
                   height: 2.4em;
@@ -968,10 +973,12 @@
 
           .copyright {
             line-height: 2.5em;
+
             .link {
               display: flex;
               justify-content: flex-start;
               flex-wrap: wrap;
+
               a {
                 margin-right: 15px;
               }

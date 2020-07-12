@@ -1,6 +1,7 @@
 import React from "react";
 import SvgIcon from "../SvgIcon";
 export default function AccordionItem(props) {
+  console.log(props);
   return (
     <li
       className={props.isCollapsed ? "" : "open"}
