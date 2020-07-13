@@ -127,9 +127,21 @@
           }
 
           &:hover {
+              ul {
+                display: none;
+                height: 0;
+                opacity: 0;
+              }
+          }
+          &.open {
             .language {
               transform: rotate(180deg);
             }
+              ul {
+                display: block;
+                height: auto;
+                opacity: 1;
+              }
           }
 
           i {
@@ -504,6 +516,7 @@
             p {
               font-size: 0.8em;
               margin: 20px 0 33px;
+              color: #fff;
             }
 
             .icon {
@@ -525,11 +538,11 @@
                 position: relative;
 
                 .code {
-                  width: 6em;
-                  height: 6em;
+                  width: 189px;
+                  height: 132px;
                   position: absolute;
                   left: 50%;
-                  top: -6.5em;
+                  top: -132px;
                   transform: translateX(-50%);
                   display: none;
                 }
@@ -547,10 +560,13 @@
             flex-direction: column;
             justify-content: flex-start;
             color: #fff;
-
+            b{
+              font-size: 0.8em;
+            }
             a {
               margin-top: 23px;
               color: #999dab;
+              font-size: 0.7em;
 
               &:hover {
                 color: #fff;
@@ -591,8 +607,11 @@
           line-height: 5em;
           border-top: 1px solid rgba(216, 216, 216, 0.1);
           font-size: 0.7em;
-
           .link {
+            .active {
+              color: #fff;
+              font-weight: 500;
+            }
             a {
               display: inline-block;
               margin-right: 30px;
@@ -946,9 +965,9 @@
 
                 .wxCode {
                   .code {
-                    width: 4em;
-                    height: 4em;
-                    top: -4.5em;
+                    width: 189px;
+                    height: 132px;
+                    top: -132px;
                   }
                 }
 

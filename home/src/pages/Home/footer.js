@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import SvgIcon from "../../components/SvgIcon/index";
-export default function Footer() {
+export default function Footer(props) {
   return (
     <footer>
       <div className={"footer_warp"}>
@@ -37,14 +37,23 @@ export default function Footer() {
                   <SvgIcon iconClass={"icon5"} />
                 </a>
               </li>
-              <li className={"wxCode"}>
-                <SvgIcon iconClass={"icon5"} />
-                <SvgIcon className={"code"} iconClass={"code1"} />
+              <li>
+                <a href="https://www.linkedin.com/company/dforce-network">
+                  <SvgIcon iconClass={"icon6"} />
+                </a>
               </li>
-              <li className={"wxCode"}>
-                <SvgIcon iconClass={"icon5"} />
-                <SvgIcon className={"code"} iconClass={"code2"} />
+              <li>
+                <a href="https://www.youtube.com/channel/UCM6Vgoc-BhFGG11ZndUr6Ow">
+                  <SvgIcon iconClass={"icon7"} />
+                </a>
               </li>
+              {
+                props.cur_language === 'cn' && <li className={"wxCode"}>
+                  <SvgIcon iconClass={"icon8"} />
+                  <SvgIcon className={"code"} iconClass={"wx_code"} />
+                </li>
+              }
+
             </ul>
           </div>
           <div className={"info_ct"}>
@@ -69,7 +78,7 @@ export default function Footer() {
         </div>
         <div className={"copyright"}>
           <div className={"link"}>
-            <a href="https://github.com/dforce-network">
+            <a className={"active"} href="https://github.com/dforce-network">
               <FormattedMessage id="developer" />
             </a>
             <a href="https://github.com/dforce-network">

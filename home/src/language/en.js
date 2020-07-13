@@ -88,7 +88,7 @@ export default {
   FAQ7_2_text: "Please visit",
   FAQ7_3_text: "https://www.paxos.com/paxgold/",
   FAQ7_4_text: "for the complete fee schedule of PAXG.",
-  foot_r: "The future of investing in gold",
+  foot_r: "Community",
   products: "Products",
   contactUs: "Contact",
   WeChat: "WeChat official account",

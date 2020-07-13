@@ -38,7 +38,7 @@ export default class Home extends Component {
           <Features />
           <Ecosystem />
           <FAQ cur_language={cur_language} />
-          <Footer />
+          <Footer cur_language={cur_language} />
         </div>
       </IntlProvider>
     );

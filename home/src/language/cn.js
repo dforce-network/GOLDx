@@ -82,7 +82,7 @@ export default {
     "GOLDx的铸币和销毁费用完全取决于底层资产PAXG的相关费用和使用以太坊网络所需支付的耗损费，dForce暂不对GOLDx收取任何额外的服务费用。",
   FAQ7_2_text: "PAXG的具体收费标准请参考：",
   FAQ7_3_text: "https://www.paxos.com/paxgold/",
-  foot_r: "黄金投资的未来",
+  foot_r: "社区",
   products: "产品",
   contactUs: "联系我们",
   WeChat: "微信公众号",

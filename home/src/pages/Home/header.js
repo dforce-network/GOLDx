@@ -9,17 +9,28 @@ export default class header extends Component {
       isOpen: false,
     };
   }
-  switch(e) {
+  switch() {
     this.setState({
       isOpen: !this.state.isOpen,
     });
   }
   checked(e) {
     const language = e.target.dataset.id;
+    e.stopPropagation();
     this.setState({
       isOpen: false,
     });
     this.props.setLanguage(language);
+  }
+  componentDidMount() {
+    document.body.addEventListener("click", (e) => {
+      if (e.target && e.target.matches('.switch_language')) {
+        return;
+      }
+      this.setState({
+        isOpen: false
+      })
+    })
   }
   render() {
     const { isOpen } = this.state;
@@ -79,7 +90,7 @@ export default class header extends Component {
               </li>
             </ul>
           </div>
-          <div className={isOpen ? "switch_language open" : "switch_language"}>
+          <div className={isOpen ? "switch_language open" : "switch_language"} onClick={() => this.switch()}>
             {cur_language === "cn" ? "中文简体" : "English"}
             <SvgIcon className={"language"} iconClass={"up"} />
             <ul onClick={(e) => this.checked(e)}>
@@ -96,5 +107,8 @@ export default class header extends Component {
         </nav>
       </header>
     );
+  }
+  componentWillUnmount() {
+    document.body.removeEventListener("click")
   }
 }

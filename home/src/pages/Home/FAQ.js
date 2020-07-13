@@ -67,9 +67,15 @@ export default class FAQ extends Component {
         >
           <p>
             <FormattedMessage id="FAQ6_1_text" />
-            <a href="https://www.slowmist.com/">
-              <FormattedMessage id="FAQ6_2_text" />
-            </a>
+            {
+              cur_language === "cn" ?
+                <a href="https://github.com/dforce-network/documents/tree/master/audit_report/GOLDx/CN">
+                  <FormattedMessage id="FAQ6_2_text" />
+                </a>
+                : <a href="https://github.com/dforce-network/documents/tree/master/audit_report/GOLDx/EN">
+                  <FormattedMessage id="FAQ6_2_text" />
+                </a>
+            }
             <FormattedMessage id="FAQ6_3_text" />
           </p>
         </AccordionItem>
@@ -91,19 +97,19 @@ export default class FAQ extends Component {
               </p>
             </Fragment>
           ) : (
-            <Fragment>
-              <p>
-                <FormattedMessage id="FAQ7_1_text" />
-              </p>
-              <p>
-                <FormattedMessage id="FAQ7_2_text" />
-                <a href="https://www.paxos.com/paxgold/">
-                  <FormattedMessage id="FAQ7_3_text" />
-                </a>
-                <FormattedMessage id="FAQ7_4_text" />
-              </p>
-            </Fragment>
-          )}
+              <Fragment>
+                <p>
+                  <FormattedMessage id="FAQ7_1_text" />
+                </p>
+                <p>
+                  <FormattedMessage id="FAQ7_2_text" />
+                  <a href="https://www.paxos.com/paxgold/">
+                    <FormattedMessage id="FAQ7_3_text" />
+                  </a>
+                  <FormattedMessage id="FAQ7_4_text" />
+                </p>
+              </Fragment>
+            )}
         </AccordionItem>
       </Accordion>
     );
