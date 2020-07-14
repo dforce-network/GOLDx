@@ -11,7 +11,7 @@ export default {
   Governance2: "DF代币分发",
   English: "中文简体",
   bannerTitle1: "GOLDx",
-  bannerTitle2: "数字黄金代币",
+  bannerTitle2: "数字黄金代币？",
   bannerSection1:
     "GOLDx是dForce推出的第一个基于开放式黄金协议开发的数字黄金代币。",
   bannerSection2:

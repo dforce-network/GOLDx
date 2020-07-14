@@ -6,10 +6,6 @@ export default function Transaction() {
     <div className={"transaction"}>
       <div className={"trans_warp"}>
         <div className={"top"}></div>
-        <div className={"banlance"}>
-          <SvgIcon iconClass={"up"} />
-          <FormattedMessage id="InsufficientBalance" />
-        </div>
         <a href="https://trade.dforce.network/" className={"btn"}>
           <FormattedMessage id="SWAP" />
         </a>

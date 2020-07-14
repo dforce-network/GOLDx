@@ -7,7 +7,7 @@ export default function Ecosystem() {
             <div className={"eco_warp"}>
                 <h2><FormattedMessage id='SWAP' /></h2>
                 <p><FormattedMessage id='GOLDxEcosystemTitle1' /><br /><FormattedMessage id='GOLDxEcosystemTitle2' /></p>
-                <ul>
+                <ul className={""}>
                     <li>
                         <a href="https://www.slowmist.com/">
                             <SvgIcon iconClass={"ecosystem1"} />

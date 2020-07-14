@@ -25,8 +25,8 @@ export default {
   SWAP: "SWAP",
   Features: "Features",
   FeaturesTitle1:
-    "GOLDx has the following distinguished features compared with other",
-  FeaturesTitle2: "gold tokens in the markets:",
+    "GOLDx has the following distinguished features compared with",
+  FeaturesTitle2: "other gold tokens in the markets:",
   Customization: "Customization",
   CustomizationContent:
     "GOLDx is denominated in gram instead of troy ounce, which is more friendly to Asia investors and holders",
@@ -53,8 +53,8 @@ export default {
     "As a DeFi protocol, GOLDx is able to support upgrade, i.e. to expand its gold reserve to include other tokens",
   GOLDxEcosystem: "GOLDx Ecosystem",
   GOLDxEcosystemTitle1:
-    "GOLDx is supported across a number of exchanges, wallets, DeFi",
-  GOLDxEcosystemTitle2: "protocols, blockchain security company, etc.",
+    "GOLDx is supported across a number of exchanges, wallets,",
+  GOLDxEcosystemTitle2: "DeFi protocols, blockchain security company, etc.",
   SlowMist: "SlowMist",
   PaxosGold: "Paxos Gold",
   dForceHybridLending: "dForce Hybrid Lending",
@@ -93,7 +93,7 @@ export default {
   contactUs: "Contact",
   WeChat: "WeChat official account",
   community: "Join the community",
-  developer: "White Paper",
+  developer: "Developers",
   GitHub: "GitHub",
   Documentations: "Documentations",
   AuditReports: "Audit Reports",
