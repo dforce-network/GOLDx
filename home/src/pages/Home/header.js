@@ -136,7 +136,7 @@ export default class header extends Component {
           <div className={showMobileOpen.includes("1") ? "active nav_link" : "nav_link"}>
             <div className={"nav_link_title first"} onClick={() => this.showMobileNav("1")}>
               <span><FormattedMessage id="Assets" /></span>
-              <SvgIcon className={"arrow"} iconClass={"arrow_down"} />
+              <SvgIcon className={"arrow"} iconClass={"arrow_up"} />
             </div>
             <ul>
               <li>
@@ -154,7 +154,7 @@ export default class header extends Component {
           <div className={showMobileOpen.includes("2") ? "active nav_link" : "nav_link"}>
             <div className={"nav_link_title"} onClick={() => this.showMobileNav("2")}>
               <span><FormattedMessage id="Trade" /></span>
-              <SvgIcon className={"arrow"} iconClass={"arrow_down"} />
+              <SvgIcon className={"arrow"} iconClass={"arrow_up"} />
             </div>
             <ul>
               <li>
@@ -172,7 +172,7 @@ export default class header extends Component {
           <div className={showMobileOpen.includes("3") ? "active nav_link" : "nav_link"}>
             <div className={"nav_link_title"} onClick={() => this.showMobileNav("3")}>
               <span><FormattedMessage id="Governance" /></span>
-              <SvgIcon className={"arrow"} iconClass={"arrow_down"} />
+              <SvgIcon className={"arrow"} iconClass={"arrow_up"} />
             </div>
             <ul>
               <li>
