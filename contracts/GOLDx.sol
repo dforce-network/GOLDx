@@ -261,7 +261,7 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
     }
 
     function transfer(address _src, address _dst, uint256 _wad) internal whenNotPaused notUpgrading {
-        uint256 _fee = getFee(fee[msg.sig], _wad);
+        uint256 _fee = getFee(fee[this.transfer.selector], _wad);
         uint256 _principle = _wad.sub(_fee);
         balanceOf[_src] = balanceOf[_src].sub(_wad);
         balanceOf[_dst] = balanceOf[_dst].add(_principle);
@@ -425,8 +425,8 @@ contract GOLDx is Pausable, ReentrancyGuard, ERC20SafeTransfer {
             unit,
             decimals,
             IERC20(token).decimals(),
-            fee[0x40c10f19],
-            fee[0x9dc29fac],
+            fee[this.mint.selector],
+            fee[this.burn.selector],
             IPAXG(token).feeParts(),
             IPAXG(token).feeRate(),
             paused || (upgradeTime > 0 && upgradeTime <= now)
