@@ -49,7 +49,7 @@ function Banner(props) {
         <a href="#" className={"btn"}>
           <FormattedMessage id="Mint" />
         </a>
-        <a href="/dapp" className={"m_btn"}>
+        <a href="/dapp" className={"m_btn active"}>
           <FormattedMessage id="SWAP" />
         </a>
       </div>

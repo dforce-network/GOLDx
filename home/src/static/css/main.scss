@@ -226,8 +226,8 @@
           font-size: 0.9em;
           color: #fa9b00;
           &.active {
-            background-color: #fa9b00;
-            color: #fff;
+            // background-color: #fa9b00;
+            // color: #fff;
           }
         }
         .btn {
@@ -340,7 +340,7 @@
           margin-bottom: 20px;
           border-radius:10px;
           border:1px solid rgba(229,230,233,1);
-          padding: 57px 70px 103px 48px;
+          padding: 57px 70px 60px 48px;
           box-sizing: border-box;
           display: flex;
           justify-content: space-between;
@@ -506,7 +506,7 @@
         }
 
         &.open {
-          padding-bottom: 1em;
+          padding-bottom: 2em;
 
           p {
             height: auto;
@@ -860,6 +860,10 @@
             font-size: 0.6em;
             border-width: 1px;
             margin-right: 0;
+            &.active {
+              background-color:inherit;
+              color: #fa9b00;
+            }
           }
         }
       }
@@ -1023,6 +1027,9 @@
                  height: 0.9em;
                }
             }
+          }
+          &.open {
+            padding-bottom:0.5em;
           }
             p {
               font-size: 0.6em;
