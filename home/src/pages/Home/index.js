@@ -22,7 +22,6 @@ export default class Home extends Component {
   }
   render() {
     let { cur_language } = this.state;
-    console.log(cur_language);
     return (
       <IntlProvider
         locale={"en"}

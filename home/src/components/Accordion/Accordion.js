@@ -12,7 +12,6 @@ export default function Accordion(props) {
   //     (item) => item.type.name === "AccordionItem"
   //   );
   //   console.log(items);
-  console.log(props.children);
   return (
     <div className={"faq"}>
       <h2>常见问题</h2>
