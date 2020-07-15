@@ -50,7 +50,7 @@ export default function Footer(props) {
               {
                 props.cur_language === 'cn' && <li className={"wxCode"}>
                   <SvgIcon iconClass={"icon8"} />
-                  <SvgIcon className={"code"} iconClass={"wx_code"} />
+                  <SvgIcon className={"code"} iconClass={"code2"} />
                 </li>
               }
 
@@ -175,7 +175,7 @@ export default function Footer(props) {
               {
                 props.cur_language === 'cn' && <li className={"wxCode"}>
                   <SvgIcon iconClass={"icon8"} />
-                  <SvgIcon className={"code"} iconClass={"wx_code"} />
+                  <SvgIcon className={"code"} iconClass={"code2"} />
                 </li>
               }
 
