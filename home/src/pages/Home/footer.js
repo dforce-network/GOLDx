@@ -50,7 +50,7 @@ export default function Footer(props) {
               {
                 props.cur_language === 'cn' && <li className={"wxCode"}>
                   <SvgIcon iconClass={"icon8"} />
-                  <SvgIcon className={"code"} iconClass={"code2"} />
+                  <SvgIcon className={"code"} iconClass={"code1"} />
                 </li>
               }
 
@@ -65,6 +65,9 @@ export default function Footer(props) {
             </a>
             <a href="https://trade.dforce.network/">
               <FormattedMessage id="Trade1" />
+            </a>
+            <a href="/">
+              <FormattedMessage id="GOLDx" />
             </a>
           </div>
           <div className={"info_ct info_r"}>
@@ -175,7 +178,7 @@ export default function Footer(props) {
               {
                 props.cur_language === 'cn' && <li className={"wxCode"}>
                   <SvgIcon iconClass={"icon8"} />
-                  <SvgIcon className={"code"} iconClass={"code2"} />
+                  <SvgIcon className={"code"} iconClass={"code1"} />
                 </li>
               }
 

@@ -452,23 +452,22 @@
 
         ul {
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
+          flex-wrap: wrap;
 
           li {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            flex: 1;
-            margin-right: 20px;
-
+            flex: 0 0 24%;
             font-size: 0.8em;
             line-height: 1.4em;
             color: rgba(103, 108, 129, 1);
             background: rgba(255, 255, 255, 1);
             border-radius: 10px;
-
+            margin-bottom: 15px;
             &:nth-child(4n) {
               margin-right: 0;
             }
@@ -1030,8 +1029,7 @@
             align-items: flex-start;
             padding-top: 10px;
             li {
-              width: 24%;
-              flex: none;
+              flex: 0 0 27%;
               box-shadow: 5px 9px 30px 0 rgba(255, 255, 255, 0.08);
               border-radius: 10px;
               margin-bottom: 20px;

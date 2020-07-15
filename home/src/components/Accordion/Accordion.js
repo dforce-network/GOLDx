@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 import AccordionItem from "./AccordionItem";
 
 export default function Accordion(props) {
@@ -14,7 +15,7 @@ export default function Accordion(props) {
   //   console.log(items);
   return (
     <div className={"faq"}>
-      <h2>常见问题</h2>
+      <h2><FormattedMessage id="FAQ" /></h2>
       <ul>
         {props.children.map(({ props }) => (
           <AccordionItem

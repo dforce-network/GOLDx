@@ -8,8 +8,8 @@
                     <tspan x="0" y="48" fill="#FA9B00">GOLDx</tspan>
                     <tspan x="153.64" y="48" fill="#FFA100"> </tspan>
                 </text>
-                <text id="数字黄金代币？" font-family="SourceHanSansCN-Heavy, Source Han Sans CN" font-size="46" font-weight="600" fill="#232A49">
-                    <tspan x="164" y="48">数字黄金代币？</tspan>
+                <text id="数字黄金代币" font-family="SourceHanSansCN-Heavy, Source Han Sans CN" font-size="46" font-weight="600" fill="#232A49">
+                    <tspan x="164" y="48">数字黄金代币</tspan>
                 </text>
                 <text id="GOLDx是dForce推出的第一个基于" font-family="Helvetica" font-size="16" font-weight="normal" line-spacing="30" fill="#565B73">
                     <tspan x="0" y="91">GOLDx</tspan>
