@@ -21,8 +21,9 @@ export default {
   bannerSection3:
     "PAXG as the constituent gold token of GOLDx, is regulated by NYDFS and is 100% back by London Good Delivery physical gold bar certified by the London Bullion Market Association.",
   WhitePaper: "White Paper",
-  Mint: "Mint",
+  Mint: "Mint/Redeem",
   InsufficientBalance: "Insufficient Balance",
+  swap: "SWAP",
   SWAP: "GOLDx Ecosystem",
   Features: "Features",
   FeaturesTitle1:

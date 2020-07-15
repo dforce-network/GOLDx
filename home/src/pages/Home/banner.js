@@ -45,10 +45,10 @@ function Banner(props) {
       <div className={"btn_box"}>
         {
           props.cur_language === "cn" ?
-            <a href="https://github.com/dforce-network/documents/tree/master/white_papers/cn" className={"btn active"}>
+            <a href="https://github.com/dforce-network/documents/blob/master/white_papers/cn/Goldx%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf" target="_blank" className={"btn active"}>
               <FormattedMessage id="WhitePaper" />
             </a> :
-            <a href="https://github.com/dforce-network/documents/tree/master/white_papers/en" className={"btn active"}>
+            <a href="https://github.com/dforce-network/documents/blob/master/white_papers/cn/Goldx%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf" className={"btn active"}>
               <FormattedMessage id="WhitePaper" />
             </a>
         }

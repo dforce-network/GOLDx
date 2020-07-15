@@ -20,8 +20,9 @@ export default {
   bannerSection3:
     "GOLDx黄金代币的成分币PAXG受纽约证券交易所的监管，底层100%锚定伦敦金银市场协会认证的伦敦金交割金",
   WhitePaper: "白皮书",
-  Mint: "铸币",
+  Mint: "铸造/销毁",
   InsufficientBalance: "余额不足",
+  swap: "兑换",
   SWAP: "GOLDx生态支持",
   Features: "特征",
   FeaturesTitle1: "与市场上的其它数字黄金代币相比",
