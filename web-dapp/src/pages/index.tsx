@@ -334,7 +334,9 @@ export default class Index extends React.Component<any, any> {
         {/* *** *** *** *** *** *** mobile *** *** *** *** *** *** */}
         <div className='wrap-mob'>
           <div className='only-left'>
-            <img src={logo_goldx_log} alt='' />
+            <a href="https://goldx.dforce.network" className={'header__logo'}>
+              <img src={logo_goldx_log} alt="logo" />
+            </a>
           </div>
           <div className='only-right'>
             <img src={close} alt='' onClick={() => { this.setState({ showonly: true }) }} />
@@ -345,7 +347,9 @@ export default class Index extends React.Component<any, any> {
         <div className={this.state.showonly ? 'mobile-only' : 'disn'}>
           <div className='wrap-mob'>
             <div className='only-left'>
-              <img src={logo_goldx_log} alt='' />
+              <a href="https://goldx.dforce.network" className={'header__logo'}>
+                <img src={logo_goldx_log} alt="logo" />
+              </a>
             </div>
             <div className='only-right'>
               <img src={close_new} alt='' onClick={() => { this.setState({ showonly: false }) }} />
@@ -406,7 +410,7 @@ export default class Index extends React.Component<any, any> {
 
 
         <div className={'header'}>
-          <a href="javascript:;" className={'header__logo'}>
+          <a href="https://goldx.dforce.network" className={'header__logo'}>
             <img src={logo_goldx_log} alt="logo" />
           </a>
 
