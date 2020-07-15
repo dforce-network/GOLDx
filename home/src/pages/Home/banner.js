@@ -43,9 +43,15 @@ function Banner(props) {
 
       </div>
       <div className={"btn_box"}>
-        <a href="#" className={"btn active"}>
-          <FormattedMessage id="WhitePaper" />
-        </a>
+        {
+          props.cur_language === "cn" ?
+            <a href="https://github.com/dforce-network/documents/tree/master/white_papers/cn" className={"btn active"}>
+              <FormattedMessage id="WhitePaper" />
+            </a> :
+            <a href="https://github.com/dforce-network/documents/tree/master/white_papers/en" className={"btn active"}>
+              <FormattedMessage id="WhitePaper" />
+            </a>
+        }
         <a href="/dapp" className={"btn"}>
           <FormattedMessage id="Mint" />
         </a>

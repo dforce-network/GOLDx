@@ -71,23 +71,23 @@ export default function Footer(props) {
             <b>
               <FormattedMessage id="contactUs" />
             </b>
-            <a href="mailto:support@dforce.netword">support@dforce.netword</a>
-            <a href="mailto:bd@dforce.netword">bd@dforce.netword</a>
-            <a href="mailto:tech@dforce.netword">tech@dforce.netword</a>
+            <a href="mailto:support@dforce.network">support@dforce.network</a>
+            <a href="mailto:bd@dforce.network">bd@dforce.network</a>
+            <a href="mailto:tech@dforce.network">tech@dforce.network</a>
           </div>
         </div>
         <div className={"copyright"}>
           <div className={"link"}>
-            <a className={"active"} href="https://github.com/dforce-network">
+            {/* <a className={"active"} href="https://github.com/dforce-network">
               <FormattedMessage id="developer" />
-            </a>
-            <a href="https://github.com/dforce-network">
+            </a> */}
+            <a href="https://github.com/dforce-network/GOLDx">
               <FormattedMessage id="GitHub" />
             </a>
             <a href="https://github.com/dforce-network/documents">
               <FormattedMessage id="Documentations" />
             </a>
-            <a href="https://github.com/dforce-network/documents/tree/master/audit_report">
+            <a href="https://github.com/dforce-network/documents/tree/master/audit_report/GOLDx">
               <FormattedMessage id="AuditReports" />
             </a>
           </div>
@@ -126,9 +126,9 @@ export default function Footer(props) {
               <FormattedMessage id="contactUs" />
             </b>
             <div className={"info_r_link"}>
-              <a href="mailto:support@dforce.netword">support@dforce.netword</a>
-              <a href="mailto:bd@dforce.netword">bd@dforce.netword</a>
-              <a href="mailto:tech@dforce.netword">tech@dforce.netword</a>
+              <a href="mailto:support@dforce.network">support@dforce.network</a>
+              <a href="mailto:bd@dforce.network">bd@dforce.network</a>
+              <a href="mailto:tech@dforce.network">tech@dforce.network</a>
             </div>
           </div>
 

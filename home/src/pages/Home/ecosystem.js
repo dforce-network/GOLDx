@@ -29,8 +29,8 @@ export default function Ecosystem() {
                     </li>
                     <li>
                         <a href="https://trade.dforce.network/">
-                            <SvgIcon iconClass={"ecosystem4"} />
-                            <span>dForce Swap</span>
+                            <SvgIcon iconClass={"ecosystem3"} />
+                            <span>dForce Trade</span>
                         </a>
                     </li>
                 </ul>
