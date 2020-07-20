@@ -3,23 +3,24 @@ import { FormattedMessage } from "react-intl";
 import AccordionItem from "./AccordionItem";
 
 export default function Accordion(props) {
-  const [bindIndex, setBindIndex] = React.useState(props.defaultIndex);
-
+  let [bindIndex, setBindIndex] = React.useState(props.defaultIndex);
+  let arrIndex = [...bindIndex];
   const changeItem = (itemIndex) => {
-    if (typeof props.onItemClick === "function") props.onItemClick(itemIndex);
-    if (itemIndex !== bindIndex) setBindIndex(itemIndex);
+    arrIndex.includes(itemIndex)
+      ? (arrIndex = arrIndex.filter((n) => n !== itemIndex))
+      : arrIndex.push(itemIndex);
+    setBindIndex(arrIndex);
+    if (typeof props.onItemClick === "function") props.onItemClick(bindIndex);
   };
-  //   const items = props.children.filter(
-  //     (item) => item.type.name === "AccordionItem"
-  //   );
-  //   console.log(items);
   return (
     <div className={"faq"}>
-      <h2><FormattedMessage id="FAQ" /></h2>
+      <h2>
+        <FormattedMessage id="FAQ" />
+      </h2>
       <ul>
         {props.children.map(({ props }) => (
           <AccordionItem
-            isCollapsed={bindIndex !== props.index}
+            isCollapsed={bindIndex.includes(props.index) ? true : false}
             label={props.label}
             svgName={props.svgName}
             handleClick={() => changeItem(props.index)}

@@ -8,7 +8,7 @@ export default class header extends Component {
     this.state = {
       isOpen: false,
       menuOpen: false,
-      showMobileOpen: ["1", "2", "3"]
+      showMobileOpen: ["1", "2", "3"],
     };
   }
   showMenu(e) {
@@ -35,22 +35,24 @@ export default class header extends Component {
     this.props.setLanguage(language);
   }
   showMobileNav(index) {
-    const { showMobileOpen } = this.state
-    let newIndexArray = [...showMobileOpen]
-    newIndexArray.includes(index) ? newIndexArray = newIndexArray.filter(n => n !== index) : newIndexArray.push(index)
+    const { showMobileOpen } = this.state;
+    let newIndexArray = [...showMobileOpen];
+    newIndexArray.includes(index)
+      ? (newIndexArray = newIndexArray.filter((n) => n !== index))
+      : newIndexArray.push(index);
     this.setState({
-      showMobileOpen: newIndexArray
-    })
+      showMobileOpen: newIndexArray,
+    });
   }
   componentDidMount() {
     document.body.addEventListener("click", (e) => {
-      // if (e.target && e.target.matches('.switch_language')) {
-      //   return;
-      // }
+      if (e.target && e.target.matches(".switch_language")) {
+        return;
+      }
       this.setState({
-        isOpen: false
-      })
-    })
+        isOpen: false,
+      });
+    });
   }
   render() {
     const { isOpen, menuOpen, showMobileOpen } = this.state;
@@ -59,61 +61,105 @@ export default class header extends Component {
       <header>
         <div className="menu_header">
           <SvgIcon className={"logo"} iconClass={"logo"} alt={"dForce"} />
-          <div onClick={(e) => this.showMenu(e)}><SvgIcon className={"menu_m_open"} iconClass={"meun_m_open"} /></div>
+          <div onClick={(e) => this.showMenu(e)}>
+            <SvgIcon className={"menu_m_open"} iconClass={"meun_m_open"} />
+          </div>
         </div>
         <nav className={"pc_nav"}>
           <div className={"active"}>
-            <a className={"link"} href="https://usdx.dforce.network/">
+            <a
+              className={"link"}
+              href="https://usdx.dforce.network/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FormattedMessage id="Assets" />
             </a>
             <ul>
               <li>
-                <a href="https://usdx.dforce.network/">
+                <a
+                  href="https://usdx.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Assets1" />
                 </a>
               </li>
               <li>
-                <a href="https://usdx.dforce.network/">
+                <a
+                  href="https://usdx.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Assets2" />
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <a className={"link"} href="https://trade.dforce.network/">
+            <a
+              className={"link"}
+              href="https://trade.dforce.network/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FormattedMessage id="Trade" />
             </a>
             <ul>
               <li>
-                <a href="https://trade.dforce.network/">
+                <a
+                  href="https://trade.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Trade1" />
                 </a>
               </li>
               <li>
-                <a href="https://trade.dforce.network/">
+                <a
+                  href="https://trade.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Trade2" />
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <a className={"link"} href="https://airdrop.dforce.network/">
+            <a
+              className={"link"}
+              href="https://airdrop.dforce.network/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FormattedMessage id="Governance" />
             </a>
             <ul>
               <li>
-                <a href="https://airdrop.dforce.network/">
+                <a
+                  href="https://airdrop.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Governance1" />
                 </a>
               </li>
               <li>
-                <a href="https://airdrop.dforce.network/">
+                <a
+                  href="https://airdrop.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Governance2" />
                 </a>
               </li>
             </ul>
           </div>
-          <div className={isOpen ? "switch_language open" : "switch_language"} onClick={() => this.switch()}>
+          <div
+            className={isOpen ? "switch_language open" : "switch_language"}
+            onClick={() => this.switch()}
+          >
             {cur_language === "cn" ? "中文简体" : "English"}
             <SvgIcon className={"language"} iconClass={"up"} />
             <ul onClick={(e) => this.checked(e)}>
@@ -128,60 +174,113 @@ export default class header extends Component {
             </ul>
           </div>
         </nav>
-        <nav className={menuOpen ? 'm_nav showNav' : 'm_nav'}>
+        <nav className={menuOpen ? "m_nav showNav" : "m_nav"}>
           <div className="menu_header">
             <SvgIcon className={"logo"} iconClass={"logo"} alt={"dForce"} />
-            <div className={"menu_open_div"} onClick={(e) => this.hideMenu(e)}><SvgIcon className={"menu_m_open"} iconClass={"meun_m_closed"} /></div>
+            <div className={"menu_open_div"} onClick={(e) => this.hideMenu(e)}>
+              <SvgIcon className={"menu_m_open"} iconClass={"meun_m_closed"} />
+            </div>
           </div>
-          <div className={showMobileOpen.includes("1") ? "active nav_link" : "nav_link"}>
-            <div className={"nav_link_title first"} onClick={() => this.showMobileNav("1")}>
-              <span><FormattedMessage id="Assets" /></span>
+          <div
+            className={
+              showMobileOpen.includes("1") ? "active nav_link" : "nav_link"
+            }
+          >
+            <div
+              className={"nav_link_title first"}
+              onClick={() => this.showMobileNav("1")}
+            >
+              <span>
+                <FormattedMessage id="Assets" />
+              </span>
               <SvgIcon className={"arrow"} iconClass={"arrow_up"} />
             </div>
             <ul>
               <li>
-                <a href="https://usdx.dforce.network/">
+                <a
+                  href="https://usdx.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Assets1" />
                 </a>
               </li>
               <li>
-                <a href="https://usdx.dforce.network/">
+                <a
+                  href="https://usdx.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Assets2" />
                 </a>
               </li>
             </ul>
           </div>
-          <div className={showMobileOpen.includes("2") ? "active nav_link" : "nav_link"}>
-            <div className={"nav_link_title"} onClick={() => this.showMobileNav("2")}>
-              <span><FormattedMessage id="Trade" /></span>
+          <div
+            className={
+              showMobileOpen.includes("2") ? "active nav_link" : "nav_link"
+            }
+          >
+            <div
+              className={"nav_link_title"}
+              onClick={() => this.showMobileNav("2")}
+            >
+              <span>
+                <FormattedMessage id="Trade" />
+              </span>
               <SvgIcon className={"arrow"} iconClass={"arrow_up"} />
             </div>
             <ul>
               <li>
-                <a href="https://trade.dforce.network/">
+                <a
+                  href="https://trade.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Trade1" />
                 </a>
               </li>
               <li>
-                <a href="https://trade.dforce.network/">
+                <a
+                  href="https://trade.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Trade2" />
                 </a>
               </li>
             </ul>
           </div>
-          <div className={showMobileOpen.includes("3") ? "active nav_link" : "nav_link"}>
-            <div className={"nav_link_title"} onClick={() => this.showMobileNav("3")}>
-              <span><FormattedMessage id="Governance" /></span>
+          <div
+            className={
+              showMobileOpen.includes("3") ? "active nav_link" : "nav_link"
+            }
+          >
+            <div
+              className={"nav_link_title"}
+              onClick={() => this.showMobileNav("3")}
+            >
+              <span>
+                <FormattedMessage id="Governance" />
+              </span>
               <SvgIcon className={"arrow"} iconClass={"arrow_up"} />
             </div>
             <ul>
               <li>
-                <a href="https://airdrop.dforce.network/">
+                <a
+                  href="https://airdrop.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Governance1" />
                 </a>
               </li>
               <li>
-                <a href="https://airdrop.dforce.network/">
+                <a
+                  href="https://airdrop.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FormattedMessage id="Governance2" />
                 </a>
               </li>
@@ -192,6 +291,6 @@ export default class header extends Component {
     );
   }
   componentWillUnmount() {
-    document.body.removeEventListener("click")
+    document.body.removeEventListener("click");
   }
 }

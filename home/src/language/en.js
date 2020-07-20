@@ -6,14 +6,14 @@ export default {
   Trade: "Trade",
   Trade1: "dForce Trade",
   Trade2: "Stable assets swap",
-  GOLDx: 'GOLDx',
+  GOLDx: "GOLDx",
   Governance: "Governance",
   Governance1: "Airprap",
   Governance2: "DF token distribution",
   English: "English",
   bannerTitle1: "What is",
   bannerTitle2: " GOLDx",
-  bannerTitle3: "?",
+  bannerTitle3: "",
   bannerSection1:
     "GOLDx is the first gold protocol launched by dForce built upon Open Gold Protocol.",
   bannerSection2:

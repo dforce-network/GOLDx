@@ -3,7 +3,7 @@ import SvgIcon from "../SvgIcon";
 export default function AccordionItem(props) {
   return (
     <li
-      className={props.isCollapsed ? "" : "open"}
+      className={props.isCollapsed === false ? "" : "open"}
       onClick={() => props.handleClick()}
     >
       <div className={"faq_header"}>
@@ -11,7 +11,7 @@ export default function AccordionItem(props) {
         <span>{props.label}</span>
         <SvgIcon
           className={"faq_r"}
-          iconClass={props.isCollapsed ? "collapse" : "unfold"}
+          iconClass={props.isCollapsed === false ? "collapse" : "unfold"}
         />
       </div>
       <div className="collapse-content" aria-expanded={props.isCollapsed}>
