@@ -6,9 +6,9 @@ export default {
   Trade: "交易协议",
   Trade1: "dForce Trade",
   Trade2: "稳定资产型闪兑",
-  GOLDx: 'GOLDx',
+  GOLDx: "GOLDx",
   Governance: "治理",
-  Governance1: "Airprap",
+  Governance1: "Airdrop",
   Governance2: "DF代币分发",
   English: "中文简体",
   bannerTitle1: "GOLDx",
@@ -28,7 +28,8 @@ export default {
   FeaturesTitle1: "与市场上的其它数字黄金代币相比",
   FeaturesTitle2: "GOLDx拥有众多优势",
   Customization: "定制化的黄金产品",
-  CustomizationContent: "GOLDx代币以克为单位（1金衡盎司=31.1034768克），单位更小，使用更灵活，更符合亚洲用户投资黄金的习惯",
+  CustomizationContent:
+    "GOLDx代币以克为单位（1金衡盎司=31.1034768克），单位更小，使用更灵活，更符合亚洲用户投资黄金的习惯",
   PricePeg: "价格机制",
   PricePegContent:
     "由于底层资产为可兑换实物黄金的数字黄金代币，GOLDx的价格跟踪伦敦黄金市场时价",

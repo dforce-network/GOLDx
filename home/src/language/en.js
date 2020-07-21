@@ -8,7 +8,7 @@ export default {
   Trade2: "Stable assets swap",
   GOLDx: "GOLDx",
   Governance: "Governance",
-  Governance1: "Airprap",
+  Governance1: "Airdrop",
   Governance2: "DF token distribution",
   English: "English",
   bannerTitle1: "What is",
