@@ -1,6 +1,8 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import SvgIcon from "../../components/SvgIcon/index";
+import banner_cn from "../../static/img/banner-cn.png";
+import banner_en from "../../static/img/banner-en.png";
 function Banner(props) {
   return (
     <div className={"banner"}>
@@ -9,6 +11,7 @@ function Banner(props) {
         {props.cur_language === "cn" ? (
           <p className={"goldx"}>
             <FormattedMessage id="bannerTitle1" />
+            &nbsp;
             <span>
               <FormattedMessage id="bannerTitle2" />
             </span>
@@ -34,14 +37,20 @@ function Banner(props) {
           <FormattedMessage id="bannerSection3" />
         </p>
       </div>
-      <div className={"m_warp"}>
+      {/* <div className={props.cur_language === "cn" ? "m_warp" : "m_warp_en"}>
         {props.cur_language === "cn" ? (
-          <SvgIcon iconClass={"banner_cn"} />
+          // <SvgIcon iconClass={"banner_cn"} />
+          <img src={banner_cn} className={"banner_cn"} />
         ) : (
-          <SvgIcon iconClass={"banner_en"} />
+          // <SvgIcon iconClass={"banner_en"} />
+          <img src={banner_en} className={"banner_en"} />
         )}
-      </div>
-      <div className={"btn_box"}>
+      </div> */}
+      <div
+        className={
+          props.cur_language === "cn" ? "btn_box" : "btn_box btn_box_en"
+        }
+      >
         {props.cur_language === "cn" ? (
           <a
             href="https://github.com/dforce-network/documents/blob/master/white_papers/cn/Goldx%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf"
