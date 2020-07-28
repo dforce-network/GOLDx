@@ -3,6 +3,10 @@ export default {
   Assets: "Assets",
   Assets1: "USDx",
   Assets2: "An indexed stablecoin",
+  Assets3: "Yield Markets",
+  Assets4: "A yield aggregator",
+  Assets5: "GOLDx",
+  Assets6: "Token backed by physical gold",
   Trade: "Trade",
   Trade1: "dForce Trade",
   Trade2: "Stable assets swap",
@@ -13,7 +17,7 @@ export default {
   English: "English",
   bannerTitle1: "What is",
   bannerTitle2: " GOLDx",
-  bannerTitle3: "",
+  bannerTitle3: " ？",
   bannerSection1:
     "GOLDx is the first gold protocol launched by dForce built upon Open Gold Protocol.",
   bannerSection2:

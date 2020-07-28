@@ -60,7 +60,8 @@ export default class header extends Component {
     return (
       <header>
         <div className="menu_header">
-          <SvgIcon className={"logo"} iconClass={"logo"} alt={"dForce"} />
+          <a href="https://dforce.network/"
+            rel="noopener noreferrer"><SvgIcon className={"logo"} iconClass={"logo"} alt={"dForce"} /></a>
           <div onClick={(e) => this.showMenu(e)}>
             <SvgIcon className={"menu_m_open"} iconClass={"meun_m_open"} />
           </div>
@@ -92,6 +93,42 @@ export default class header extends Component {
                   rel="noopener noreferrer"
                 >
                   <FormattedMessage id="Assets2" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://markets.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="Assets3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://markets.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="Assets4" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="Assets5" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="Assets6" />
                 </a>
               </li>
             </ul>
@@ -212,6 +249,42 @@ export default class header extends Component {
                   rel="noopener noreferrer"
                 >
                   <FormattedMessage id="Assets2" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://markets.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="Assets3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://markets.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="Assets4" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="Assets5" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="Assets6" />
                 </a>
               </li>
             </ul>
