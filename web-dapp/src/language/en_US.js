@@ -1,5 +1,9 @@
 const en_US = {
-  Wallet_Balance:'Wallet Balance',
+  goldx: 'GOLDx',
+  goldx_detail: 'Token backed by physical gold',
+  Yield_Markets: 'Yield Markets',
+  Yield_Markets_detail: 'A yield aggregator',
+  Wallet_Balance: 'Wallet Balance',
   Total_PAXG_in_Goldx: 'Total PAXG in GOLDx',
   PAXG_Total_Supply: 'PAXG Total Supply',
   Goldx_Outstanding: 'GOLDx Outstanding',

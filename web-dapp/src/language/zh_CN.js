@@ -1,4 +1,8 @@
 const en_US = {
+  goldx: '黄金代币',
+  goldx_detail: '锚定实物黄金的代币',
+  Yield_Markets: '生息市场',
+  Yield_Markets_detail: '利息聚合器',
   Wallet_Balance: '钱包',
   Total_PAXG_in_Goldx: 'GOLDx中PAXG锁定量',
   PAXG_Total_Supply: 'PAXG 总量',
