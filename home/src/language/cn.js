@@ -9,7 +9,7 @@ export default {
   Assets6: "锚定实物黄金的代币",
   Trade: "交易协议",
   Trade1: "dForce Trade",
-  Trade2: "稳定资产型闪兑",
+  Trade2: "去中心化交易聚合器",
   GOLDx: "GOLDx",
   Governance: "治理",
   Governance1: "Airdrop",
@@ -61,7 +61,7 @@ export default {
   SlowMist: "SlowMist",
   PaxosGold: "Paxos Gold",
   dForceHybridLending: "dForce Hybrid Lending",
-  dForceSwap: "dForce Swap",
+  dForceSwap: "dForce Trade",
   FAQ: "常见问题",
   FAQ1: "什么是GOLDx？",
   FAQ1_text:

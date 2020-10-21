@@ -9,7 +9,7 @@ export default {
   Assets6: "Token backed by physical gold",
   Trade: "Trade",
   Trade1: "dForce Trade",
-  Trade2: "Stable assets swap",
+  Trade2: "DEX aggregator",
   GOLDx: "GOLDx",
   Governance: "Governance",
   Governance1: "Airdrop",
@@ -64,7 +64,7 @@ export default {
   SlowMist: "SlowMist",
   PaxosGold: "Paxos Gold",
   dForceHybridLending: "dForce Hybrid Lending",
-  dForceSwap: "dForce Swap",
+  dForceSwap: "dForce Trade",
   FAQ: "Frequently Asked Questions",
   FAQ1: "What is GOLDx?",
   FAQ1_text:
