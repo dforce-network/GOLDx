@@ -1,4 +1,5 @@
 const en_US = {
+  usr_content: 'USDx系统利息',
   goldx: '黄金代币',
   goldx_detail: '锚定实物黄金的代币',
   Yield_Markets: '生息市场',

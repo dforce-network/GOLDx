@@ -1,4 +1,6 @@
 export default {
+  usr: 'USR',
+  usr_content: 'USDx saving rate',
   title: "index",
   Assets: "Assets",
   Assets1: "USDx",

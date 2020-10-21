@@ -1,4 +1,6 @@
 export default {
+  usr: 'USR',
+  usr_content: 'USDx系统利息',
   title: "首页",
   Assets: "资产协议",
   Assets1: "USDx",
