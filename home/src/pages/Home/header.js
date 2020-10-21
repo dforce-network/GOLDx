@@ -95,6 +95,26 @@ export default class header extends Component {
                   <FormattedMessage id="Assets2" />
                 </a>
               </li>
+
+              <li>
+                <a
+                  href="https://usr.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="usr" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://usr.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="usr_content" />
+                </a>
+              </li>
+
               <li>
                 <a
                   href="https://markets.dforce.network/"
@@ -251,6 +271,26 @@ export default class header extends Component {
                   <FormattedMessage id="Assets2" />
                 </a>
               </li>
+
+              <li>
+                <a
+                  href="https://usr.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="usr" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://usr.dforce.network/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="usr_content" />
+                </a>
+              </li>
+
               <li>
                 <a
                   href="https://markets.dforce.network/"

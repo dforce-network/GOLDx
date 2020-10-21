@@ -371,6 +371,14 @@ export default class Index extends React.Component<any, any> {
               </a>
               <span className='details'><FormattedMessage id='Portal' /></span>
             </div>
+
+            <div className='m-item'>
+              <a href='https://usr.dforce.network/' target='_blank' rel="noopener noreferrer">
+                <span className='title'>USR</span>
+              </a>
+              <span className='details'><FormattedMessage id='usr_content' /></span>
+            </div>
+
             <div className='m-item'>
               <a href='https://markets.dforce.network/' target='_blank' rel="noopener noreferrer">
                 <span className='title'>
@@ -446,6 +454,16 @@ export default class Index extends React.Component<any, any> {
                       </label>
                     </a>
                   </Menu.Item>
+
+                  <Menu.Item>
+                    <a target="_blank" rel="noopener noreferrer" href="https://usr.dforce.network/" className={'header__overlay_item'}>
+                      <span>USR</span>
+                      <label>
+                        <FormattedMessage id='usr_content' />
+                      </label>
+                    </a>
+                  </Menu.Item>
+
                   <Menu.Item>
                     <a target="_blank" rel="noopener noreferrer" href="https://markets.dforce.network/" className={'header__overlay_item'}>
                       <span>

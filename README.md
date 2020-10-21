@@ -1,3 +1,6 @@
+## How to integrate with GOldx contract
+GOLDx contract is compliance with EIP20(https://eips.ethereum.org/EIPS/eip-20) standard, you can integrate with GOLDx contract by calling any of standard ERC20 functions, for more details, please refer to verified contract on Etherscan(https://etherscan.io/token/0x355c665e101b9da58704a8fddb5feef210ef20c0).
+
 ## Mainnet Contract Address(2020-07-15)
 
 <table>

@@ -1,4 +1,5 @@
 const en_US = {
+  usr_content: 'USDx系统利息',
   goldx: '黄金代币',
   goldx_detail: '锚定实物黄金的代币',
   Yield_Markets: '生息市场',
@@ -24,7 +25,7 @@ const en_US = {
   Exchange_Market: '交易协议',
   dForce_Stablecoin: '资产协议',
   Portal: '合成型稳定币',
-  Instant_Swap_of_Stable_Assets: '稳定资产闪兑',
+  Instant_Swap_of_Stable_Assets: '去中心化交易聚合器',
   DF_token_distribute_system: 'DF代币分发',
   Governance: '治理'
 }
