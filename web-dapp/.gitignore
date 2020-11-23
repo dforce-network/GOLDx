@@ -1,0 +1,10 @@
+build
+node_modules
+.idea
+__pycache__
+
+
+# testing
+/coverage
+.umi
+dist

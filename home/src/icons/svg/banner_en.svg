@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="650px" height="360px" viewBox="0 0 650 360" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>test_en</title>
+    <g id="控件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="文案---中">
+            <g>
+                <text id="What-is-GOLDx" font-family="IsidoraSansAlt-Bold, Isidora Sans Alt" font-size="46" font-weight="bold">
+                    <tspan x="0" y="48" fill="#232A49">What is </tspan>
+                    <tspan x="185" y="48" fill="#FA9B00">GOLDx</tspan>
+                </text>
+                <text id="？" font-family="SourceHanSansCN-Bold, Source Han Sans CN" font-size="46" font-weight="bold" fill="#232A49">
+                    <tspan x="350" y="48">？</tspan>
+                </text>
+                <text id="GOLDx-is-the-first-g" font-family="Helvetica" font-size="19" font-weight="normal" line-spacing="28" fill="#565B73">
+                    <tspan x="0" y="97">GOLDx is the first gold protocol launched by dForce built upon Open Gold </tspan>
+                    <tspan x="0" y="125">Protocol.</tspan>
+                </text>
+                <text id="GOLDx-is-a-gold-toke" font-family="Helvetica" font-size="19" font-weight="normal" line-spacing="28" fill="#565B73">
+                    <tspan x="0" y="169">GOLDx is a gold token 100% back by constituent gold tokens (currently </tspan>
+                    <tspan x="0" y="197">with PAXG as its sole constituent gold reserve). We will evaluate and add </tspan>
+                    <tspan x="0" y="225">more gold tokens into the reserve in the future.</tspan>
+                </text>
+                <text id="The-constituent-gold" font-family="Helvetica" font-size="19" font-weight="normal" line-spacing="28" fill="#565B73">
+                    <tspan x="0" y="268">The constituent gold token of GOLDx, PAXG is regulated by NYDFS and </tspan>
+                    <tspan x="0" y="296">is 100% back by London Good Delivery gold certified by the London </tspan>
+                    <tspan x="0" y="324">Bullion Market Association. </tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="650px" height="302px" viewBox="0 0 650 302" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>test-cn</title>
+    <g id="控件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="文案---中">
+            <g>
+                <text id="GOLDx" font-family="IsidoraSansAlt-Bold, Isidora Sans Alt" font-size="46" font-weight="bold">
+                    <tspan x="0" y="48" fill="#FA9B00">GOLDx</tspan>
+                    <tspan x="153.64" y="48" fill="#FFA100"> </tspan>
+                </text>
+                <text id="数字黄金代币" font-family="SourceHanSansCN-Heavy, Source Han Sans CN" font-size="46" font-weight="600" fill="#232A49">
+                    <tspan x="164" y="48">数字黄金代币</tspan>
+                </text>
+                <text id="GOLDx是dForce推出的第一个基于" font-family="Helvetica" font-size="18" font-weight="normal" line-spacing="30" fill="#565B73">
+                    <tspan x="0" y="94">GOLDx</tspan>
+                    <tspan x="60.0117188" y="94" font-family="PingFangSC-Regular, PingFang SC">是</tspan>
+                    <tspan x="78.0117188" y="94">dForce</tspan>
+                    <tspan x="134.033203" y="94" font-family="PingFangSC-Regular, PingFang SC">推出的第一个基于开放式黄金协议开发的数字黄金代币</tspan>
+                </text>
+                <text id="GOLDx是有100%成分币储备的黄金代" font-family="Helvetica" font-size="18" font-weight="normal" line-spacing="30" fill="#565B73">
+                    <tspan x="0" y="136">GOLDx</tspan>
+                    <tspan x="60.0117188" y="136" font-family="PingFangSC-Regular, PingFang SC">是有</tspan>
+                    <tspan x="96.0117188" y="136">100%</tspan>
+                    <tspan x="142.048828" y="136" font-family="PingFangSC-Regular, PingFang SC">成分币储备的黄金代币，目前仅锚定了一种成分币</tspan>
+                    <tspan x="538.048828" y="136">PAXG</tspan>
+                    <tspan x="588.067383" y="136" font-family="PingFangSC-Regular, PingFang SC">，未来</tspan>
+                    <tspan x="0" y="166" font-family="PingFangSC-Regular, PingFang SC">我们将会加入更多的黄金代币作为底层储备资产</tspan>
+                </text>
+                <text id="GOLDx黄金代币的成分币PAXG受纽约" font-family="Helvetica" font-size="18" font-weight="normal" line-spacing="30" fill="#565B73">
+                    <tspan x="0" y="208">GOLDx</tspan>
+                    <tspan x="60.0117188" y="208" font-family="PingFangSC-Regular, PingFang SC">黄金代币的成分币</tspan>
+                    <tspan x="204.011719" y="208">PAXG</tspan>
+                    <tspan x="254.030273" y="208" font-family="PingFangSC-Regular, PingFang SC">受纽约证券交易所的监管，底层</tspan>
+                    <tspan x="506.030273" y="208">100%</tspan>
+                    <tspan x="552.067383" y="208" font-family="PingFangSC-Regular, PingFang SC">锚定伦敦金</tspan>
+                    <tspan x="0" y="238" font-family="PingFangSC-Regular, PingFang SC">银市场协会认证的伦敦金交割金</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
