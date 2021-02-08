@@ -78,7 +78,7 @@ export default {
     "与市场上其它主流的数字黄金代币相比，在以太坊网络上发送GOLDx是免费的（不包括使用以太坊网络需要支付的费用）。",
   FAQ4: "如何兑换实物黄金？",
   FAQ4_1_text: "如需将GOLDx兑换成实物黄金，请通过邮件",
-  FAQ4_mail_text: "【goldx@dforce.network】",
+  FAQ4_mail_text: "【bd@dforce.network】",
   FAQ4_2_text: "联系我们，我们将为您联系符合条件的经纪商。",
   FAQ5: "GOLDx有投资门槛吗？",
   FAQ5_text: "最小投资额为0.001枚GOLDx。",

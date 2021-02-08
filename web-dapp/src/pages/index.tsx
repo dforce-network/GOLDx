@@ -883,15 +883,8 @@ export default class Index extends React.Component<any, any> {
             <div className="foot-item-title">
               <FormattedMessage id='Contract_US' />
             </div>
-            <div className="foot-item-content">
-              support@dforce.network
-              </div>
-            <div className="foot-item-content">
-              bd@dforce.network
-              </div>
-            <div className="foot-item-content">
-              tech@dforce.network
-              </div>
+            <div className="foot-item-content">bd@dforce.network</div>
+            <div className="foot-item-content">contact@dforce.network</div>
           </div>
           <div className="clear"></div>
         </div>

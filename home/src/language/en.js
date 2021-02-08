@@ -82,7 +82,7 @@ export default {
   FAQ4: "Where and how I redeem for physical gold?",
   FAQ4_1_text:
     "To redeem Goldx into physical gold, please kindly contact us through.",
-  FAQ4_mail_text: "[goldx@dforce.network]",
+  FAQ4_mail_text: "[bd@dforce.network]",
   FAQ4_2_text: "and we will refer our broker to assist.",
   FAQ5: "Is there any investment threshold? ",
   FAQ5_text: "The minimum investment in GOLDx is 0.001.",

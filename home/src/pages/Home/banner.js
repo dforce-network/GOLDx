@@ -17,16 +17,16 @@ function Banner(props) {
             </span>
           </p>
         ) : (
-          <p className={"goldx"}>
-            <span>
-              <FormattedMessage id="bannerTitle1" />
-            </span>
-            <FormattedMessage id="bannerTitle2" />
-            <span>
-              <FormattedMessage id="bannerTitle3" />
-            </span>
-          </p>
-        )}
+            <p className={"goldx"}>
+              <span>
+                <FormattedMessage id="bannerTitle1" />
+              </span>
+              <FormattedMessage id="bannerTitle2" />
+              <span>
+                <FormattedMessage id="bannerTitle3" />
+              </span>
+            </p>
+          )}
         <p>
           <FormattedMessage id="bannerSection1" />
         </p>
@@ -53,7 +53,7 @@ function Banner(props) {
       >
         {props.cur_language === "cn" ? (
           <a
-            href="https://github.com/dforce-network/documents/blob/master/white_papers/cn/Goldx%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf"
+            href="https://github.com/dforce-network/documents/blob/master/white_papers/cn/Goldx_Whitepaper.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className={"btn active"}
@@ -61,13 +61,13 @@ function Banner(props) {
             <FormattedMessage id="WhitePaper" />
           </a>
         ) : (
-          <a
-            href="https://github.com/dforce-network/documents/blob/master/white_papers/cn/Goldx%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf"
-            className={"btn active"}
-          >
-            <FormattedMessage id="WhitePaper" />
-          </a>
-        )}
+            <a
+              href="https://github.com/dforce-network/documents/blob/master/white_papers/en/GOLDx_Whitepaper.pdf"
+              className={"btn active"}
+            >
+              <FormattedMessage id="WhitePaper" />
+            </a>
+          )}
         <a href="/dapp" className={"btn"}>
           <FormattedMessage id="Mint" />
         </a>

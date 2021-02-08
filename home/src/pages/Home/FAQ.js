@@ -69,21 +69,21 @@ export default class FAQ extends Component {
             <FormattedMessage id="FAQ6_1_text" />
             {cur_language === "cn" ? (
               <a
-                href="https://github.com/dforce-network/documents/tree/master/audit_report/GOLDx/CN"
+                href="https://github.com/dforce-network/documents/blob/master/audit_report/GOLDx/CN/SmartContractSecurityAudit-GOLDx.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FormattedMessage id="FAQ6_2_text" />
               </a>
             ) : (
-              <a
-                href="https://github.com/dforce-network/documents/tree/master/audit_report/GOLDx/EN"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FormattedMessage id="FAQ6_2_text" />
-              </a>
-            )}
+                <a
+                  href="https://github.com/dforce-network/documents/blob/master/audit_report/GOLDx/EN/SmartContractSecurityAudit-GOLDx.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="FAQ6_2_text" />
+                </a>
+              )}
             <FormattedMessage id="FAQ6_3_text" />
           </p>
         </AccordionItem>
@@ -109,23 +109,23 @@ export default class FAQ extends Component {
               </p>
             </Fragment>
           ) : (
-            <Fragment>
-              <p>
-                <FormattedMessage id="FAQ7_1_text" />
-              </p>
-              <p>
-                <FormattedMessage id="FAQ7_2_text" />
-                <a
-                  href="https://www.paxos.com/paxgold/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="FAQ7_3_text" />
-                </a>
-                <FormattedMessage id="FAQ7_4_text" />
-              </p>
-            </Fragment>
-          )}
+              <Fragment>
+                <p>
+                  <FormattedMessage id="FAQ7_1_text" />
+                </p>
+                <p>
+                  <FormattedMessage id="FAQ7_2_text" />
+                  <a
+                    href="https://www.paxos.com/paxgold/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FormattedMessage id="FAQ7_3_text" />
+                  </a>
+                  <FormattedMessage id="FAQ7_4_text" />
+                </p>
+              </Fragment>
+            )}
         </AccordionItem>
       </Accordion>
     );

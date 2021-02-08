@@ -109,9 +109,8 @@ export default function Footer(props) {
             <b>
               <FormattedMessage id="contactUs" />
             </b>
-            <a href="mailto:support@dforce.network">support@dforce.network</a>
             <a href="mailto:bd@dforce.network">bd@dforce.network</a>
-            <a href="mailto:tech@dforce.network">tech@dforce.network</a>
+            <a href="mailto:tech@dforce.network">contact@dforce.network</a>
           </div>
         </div>
         <div className={"copyright"}>
