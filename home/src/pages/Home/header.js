@@ -68,53 +68,16 @@ export default class header extends Component {
         </div>
         <nav className={"pc_nav"}>
           <div className={"active"}>
-            <a
-              className={"link"}
-              href="https://usdx.dforce.network/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a className={"link"} href="https://app.dforce.network/#/lending" target="_blank" rel="noopener noreferrer">
+              <FormattedMessage id="LEND" />
+            </a>
+          </div>
+
+          <div className={"active"}>
+            <a className={"link"} href="https://usdx.dforce.network/" target="_blank" rel="noopener noreferrer">
               <FormattedMessage id="Assets" />
             </a>
             <ul>
-              <li>
-                <a
-                  href="https://usdx.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Assets1" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://usdx.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Assets2" />
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://usr.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="usr" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://usr.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="usr_content" />
-                </a>
-              </li>
-
               <li>
                 <a
                   href="https://markets.dforce.network/"
@@ -124,65 +87,40 @@ export default class header extends Component {
                   <FormattedMessage id="Assets3" />
                 </a>
               </li>
+
               <li>
                 <a
-                  href="https://markets.dforce.network/"
+                  href="https://usdx.dforce.network/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FormattedMessage id="Assets4" />
+                  <FormattedMessage id="Assets1" />
                 </a>
               </li>
-              <li>
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Assets5" />
-                </a>
-              </li>
+
               <li>
                 <a
                   href="/"
                   target="_blank"
                   rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Assets6" />
-                </a>
+                >GOLDx</a>
               </li>
+
             </ul>
           </div>
+
           <div>
-            <a
-              className={"link"}
-              href="https://trade.dforce.network/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a className={"link"} href="https://trade.dforce.network/" target="_blank" rel="noopener noreferrer">
               <FormattedMessage id="Trade" />
             </a>
-            <ul>
-              <li>
-                <a
-                  href="https://trade.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Trade1" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://trade.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Trade2" />
-                </a>
-              </li>
-            </ul>
           </div>
+
+          <div className={"active"}>
+            <a className={"link"} href="https://staking.dforce.network/" target="_blank" rel="noopener noreferrer">
+              <FormattedMessage id="FARM" />
+            </a>
+          </div>
+
           <div>
             <a
               className={"link"}
@@ -195,6 +133,15 @@ export default class header extends Component {
             <ul>
               <li>
                 <a
+                  href="https://snapshot.page/#/dforce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="VOTE" />
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://airdrop.dforce.network/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -204,11 +151,11 @@ export default class header extends Component {
               </li>
               <li>
                 <a
-                  href="https://airdrop.dforce.network/"
+                  href="https://forum.dforce.network/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FormattedMessage id="Governance2" />
+                  <FormattedMessage id="FORUM" />
                 </a>
               </li>
             </ul>
@@ -238,6 +185,19 @@ export default class header extends Component {
               <SvgIcon className={"menu_m_open"} iconClass={"meun_m_closed"} />
             </div>
           </div>
+
+          {/* 借贷 */}
+          <div className={"nav_link"}>
+            <div className={"nav_link_title first"}>
+              <a href="https://app.dforce.network/#/lending" target="_blank" style={{ color: '#000000', display: 'block', width: '100%' }}>
+                <span>
+                  <FormattedMessage id="LEND" />
+                </span>
+              </a>
+            </div>
+          </div>
+
+          {/* 资产 */}
           <div
             className={
               showMobileOpen.includes("1") ? "active nav_link" : "nav_link"
@@ -255,44 +215,6 @@ export default class header extends Component {
             <ul>
               <li>
                 <a
-                  href="https://usdx.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Assets1" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://usdx.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Assets2" />
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://usr.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="usr" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://usr.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="usr_content" />
-                </a>
-              </li>
-
-              <li>
-                <a
                   href="https://markets.dforce.network/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -302,11 +224,11 @@ export default class header extends Component {
               </li>
               <li>
                 <a
-                  href="https://markets.dforce.network/"
+                  href="https://usdx.dforce.network/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FormattedMessage id="Assets4" />
+                  <FormattedMessage id="Assets1" />
                 </a>
               </li>
               <li>
@@ -314,56 +236,34 @@ export default class header extends Component {
                   href="/"
                   target="_blank"
                   rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Assets5" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Assets6" />
-                </a>
+                >GOLDx</a>
               </li>
             </ul>
           </div>
-          <div
-            className={
-              showMobileOpen.includes("2") ? "active nav_link" : "nav_link"
-            }
-          >
-            <div
-              className={"nav_link_title"}
-              onClick={() => this.showMobileNav("2")}
-            >
-              <span>
-                <FormattedMessage id="Trade" />
-              </span>
-              <SvgIcon className={"arrow"} iconClass={"arrow_up"} />
+
+          {/* 交易 */}
+          <div className={"nav_link"}>
+            <div className={"nav_link_title first"}>
+              <a href="https://trade.dforce.network/" target="_blank" style={{ color: '#000000', display: 'block', width: '100%' }}>
+                <span>
+                  <FormattedMessage id="Trade" />
+                </span>
+              </a>
             </div>
-            <ul>
-              <li>
-                <a
-                  href="https://trade.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Trade1" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://trade.dforce.network/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="Trade2" />
-                </a>
-              </li>
-            </ul>
           </div>
+
+          {/* 挖矿 */}
+          <div className={"nav_link"}>
+            <div className={"nav_link_title first"}>
+              <a href="https://staking.dforce.network/" target="_blank" style={{ color: '#000000', display: 'block', width: '100%' }}>
+                <span>
+                  <FormattedMessage id="FARM" />
+                </span>
+              </a>
+            </div>
+          </div>
+
+          {/* 治理 */}
           <div
             className={
               showMobileOpen.includes("3") ? "active nav_link" : "nav_link"
@@ -381,6 +281,15 @@ export default class header extends Component {
             <ul>
               <li>
                 <a
+                  href="https://snapshot.page/#/dforce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FormattedMessage id="VOTE" />
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://airdrop.dforce.network/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -390,11 +299,11 @@ export default class header extends Component {
               </li>
               <li>
                 <a
-                  href="https://airdrop.dforce.network/"
+                  href="https://forum.dforce.network/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FormattedMessage id="Governance2" />
+                  <FormattedMessage id="FORUM" />
                 </a>
               </li>
             </ul>

@@ -1,8 +1,13 @@
 const en_US = {
+  LEND: 'LEND',
+  FORUM: 'FORUM',
+  AIRDROP: 'AIRDROP',
+  VOTE: 'VOTE',
+  FARM: 'FARM',
   usr_content: 'USDx saving rate',
   goldx: 'GOLDx',
   goldx_detail: 'Token backed by physical gold',
-  Yield_Markets: 'Yield Markets',
+  Yield_Markets: 'YIELD MARKETS',
   Yield_Markets_detail: 'A yield aggregator',
   Wallet_Balance: 'Wallet Balance',
   Total_PAXG_in_Goldx: 'Total PAXG in GOLDx',
@@ -22,11 +27,11 @@ const en_US = {
   Insufficient_Liquidity: 'Insufficient Liquidity',
   balance: 'Balance',
   Not_SUPPORTED: 'NOT SUPPORTED',
-  Exchange_Market: 'Trade',
-  dForce_Stablecoin: 'Assets',
+  Exchange_Market: 'TRADE',
+  dForce_Stablecoin: 'ASSETS',
   Portal: 'An indexed stablecoin',
   Instant_Swap_of_Stable_Assets: 'DEX aggregator',
   DF_token_distribute_system: 'DF token distribution',
-  Governance: 'Governance'
+  Governance: 'GOVERNANCE'
 }
 export default en_US;
