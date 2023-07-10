@@ -1,0 +1,47 @@
+.title {
+  font-size: 18px;
+  font-family: Roboto;
+  font-weight: bold;
+  color: #434976;
+  line-height: 60px;
+  text-align: center;
+}
+
+.wallets {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.wallets__item {
+  width: 280px;
+  height: 58px;
+  background: white;
+  border: 1px solid #dbddec;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wallets__item:hover {
+  border: 1px solid #748ffc;
+  cursor: pointer;
+}
+
+.wallets__item_name {
+  font-size: 16px;
+  font-family: Roboto;
+  font-weight: 400;
+  color: #434976;
+  line-height: 58px;
+  padding-left: 20px;
+}
+
+.wallets__item_icon {
+  padding-right: 20px;
+  padding-top: 15px;
+}
+
+.wallets__item_icon img {
+  width: 25px;
+}

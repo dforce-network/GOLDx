@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './index.less';
-import './reset.less';
-import '../cssdir/foot.less';
-import '../cssdir/header.less';
-import tips from '../cssdir/tips.less';
+import styles from './index.css';
+import './reset.css';
+import '../cssdir/foot.css';
+import '../cssdir/header.css';
+import '../cssdir/tips.css';
 import 'antd/dist/antd.css';
 import { Tabs, Button, Input, Dropdown, Menu, Modal } from 'antd';
 import { IntlProvider, FormattedMessage } from 'react-intl';
@@ -11,6 +11,7 @@ import en_US from '../language/en_US.js';
 import zh_CN from '../language/zh_CN.js';
 import History from '../history/history.js';
 import Web3 from 'web3';
+
 import {
   get_nettype,
   init_contract,
@@ -114,8 +115,8 @@ export default class Index extends React.Component<any, any> {
       my_account = await get_my_account(this.new_web3);
       is_approve = await check_approve(contract_PAXG, my_account, nettype);
 
-      my_balance_paxg = await get_my_balance(contract_PAXG, my_account, nettype);
-      my_balance_goldx = await get_my_balance(contract_GOLDx, my_account, nettype);
+      my_balance_paxg = await get_my_balance(contract_PAXG, my_account);
+      my_balance_goldx = await get_my_balance(contract_GOLDx, my_account);
       my_balance_eth = await get_my_eth(this.new_web3, my_account);
 
       totalSupply_paxg = await get_totalSupply(contract_PAXG);
@@ -190,8 +191,8 @@ export default class Index extends React.Component<any, any> {
       let g_timer = setInterval(async () => {
         if (this.state.my_account && this.state.contract_GOLDx && this.state.contract_PAXG) {
           let is_approve = await check_approve(this.state.contract_PAXG, this.state.my_account, this.state.net_type);
-          let my_balance_paxg = await get_my_balance(this.state.contract_PAXG, this.state.my_account, this.state.net_type);
-          let my_balance_goldx = await get_my_balance(this.state.contract_GOLDx, this.state.my_account, this.state.net_type);
+          let my_balance_paxg = await get_my_balance(this.state.contract_PAXG, this.state.my_account);
+          let my_balance_goldx = await get_my_balance(this.state.contract_GOLDx, this.state.my_account);
           let my_balance_eth = await get_my_eth(this.new_web3, this.state.my_account);
           let totalSupply_paxg = await get_totalSupply(this.state.contract_PAXG);
           let totalSupply_goldx = await get_totalSupply(this.state.contract_GOLDx);
@@ -235,8 +236,8 @@ export default class Index extends React.Component<any, any> {
           let g_timer = setInterval(async () => {
             if (this.state.my_account && this.state.contract_GOLDx && this.state.contract_PAXG) {
               let is_approve = await check_approve(this.state.contract_PAXG, this.state.my_account, this.state.net_type);
-              let my_balance_paxg = await get_my_balance(this.state.contract_PAXG, this.state.my_account, this.state.net_type);
-              let my_balance_goldx = await get_my_balance(this.state.contract_GOLDx, this.state.my_account, this.state.net_type);
+              let my_balance_paxg = await get_my_balance(this.state.contract_PAXG, this.state.my_account);
+              let my_balance_goldx = await get_my_balance(this.state.contract_GOLDx, this.state.my_account);
               let my_balance_eth = await get_my_eth(this.new_web3, this.state.my_account);
               let totalSupply_paxg = await get_totalSupply(this.state.contract_PAXG);
               let totalSupply_goldx = await get_totalSupply(this.state.contract_GOLDx);
@@ -270,8 +271,8 @@ export default class Index extends React.Component<any, any> {
           show_wallets: false
         }, async () => {
           let is_approve = await check_approve(this.state.contract_PAXG, this.state.my_account, this.state.net_type);
-          let my_balance_paxg = await get_my_balance(this.state.contract_PAXG, this.state.my_account, this.state.net_type);
-          let my_balance_goldx = await get_my_balance(this.state.contract_GOLDx, this.state.my_account, this.state.net_type);
+          let my_balance_paxg = await get_my_balance(this.state.contract_PAXG, this.state.my_account);
+          let my_balance_goldx = await get_my_balance(this.state.contract_GOLDx, this.state.my_account);
           let my_balance_eth = await get_my_eth(this.new_web3, this.state.my_account);
           let totalSupply_paxg = await get_totalSupply(this.state.contract_PAXG);
           let totalSupply_goldx = await get_totalSupply(this.state.contract_GOLDx);
@@ -304,11 +305,11 @@ export default class Index extends React.Component<any, any> {
           onCancel={() => { this.setState({ show_wallets: false }) }}
           footer={false}
         >
-          <div className={tips.title}>Connect Wallet</div>
-          <div className={tips.wallets}>
-            <div className={tips.wallets__item} onClick={() => { this.click_wallet('metamask') }}>
-              <span className={tips.wallets__item_name}>{'MetaMask'}</span>
-              <span className={tips.wallets__item_icon}>
+          <div className='title'>Connect Wallet</div>
+          <div className='wallets'>
+            <div className='wallets__item' onClick={() => { this.click_wallet('metamask') }}>
+              <span className='wallets__item_name'>{'MetaMask'}</span>
+              <span className='wallets__item_icon'>
                 <img src={wallet_metamask} alt="" />
               </span>
             </div>
@@ -567,97 +568,97 @@ export default class Index extends React.Component<any, any> {
         </div>
 
 
-        <div className={styles.content}>
-          <div className={styles.content_top_mobile}>
-            <div className={styles.balance_mobile}>
-              <span className={styles.balance_left}>
+        <div className="content">
+          <div className="content_top_mobile">
+            <div className="balance_mobile">
+              <span className="balance_left">
                 <FormattedMessage id='Goldx_Outstanding' />
               </span>
-              <span className={styles.balance_right}>
+              <span className="balance_right">
                 {this.state.totalSupply_goldx ? format_num_to_K(format_bn(this.state.totalSupply_goldx, 18, 2)) : '...'}
               </span>
             </div>
-            <div className={styles.balance_mobile}>
-              <span className={styles.balance_left}>
+            <div className='balance_mobile'>
+              <span className='balance_left'>
                 <FormattedMessage id='PAXG_Total_Supply' />
               </span>
-              <span className={styles.balance_right}>
+              <span className='balance_right'>
                 {this.state.totalSupply_paxg ? format_num_to_K(format_bn(this.state.totalSupply_paxg, 18, 2)) : '...'}
               </span>
             </div>
-            <div className={styles.balance_mobile}>
-              <span className={styles.balance_left}>
+            <div className='balance_mobile'>
+              <span className='balance_left'>
                 <FormattedMessage id='Total_PAXG_in_Goldx' />
               </span>
-              <span className={styles.balance_right}>
+              <span className='balance_right'>
                 {this.state.balanceOf_paxg ? format_num_to_K(format_bn(this.state.balanceOf_paxg, 18, 2)) : '...'}
               </span>
             </div>
           </div>
 
-          <div className={styles.content_left}>
-            <div className={styles.content_left_top}>
+          <div className='content_left'>
+            <div className='content_left_top'>
               <Tabs
                 tabBarStyle={{ fontSize: '16px', fontWeight: 'bold' }}
               >
                 <TabPane tab={this.state.cur_language === '中文' ? "存入" : "MINT"} key="1">
-                  <div className={styles.pane_top}>
+                  <div className='pane_top'>
 
-                    <div className={styles.sec1}>
-                      <div className={styles.sec1_token}>
+                    <div className='sec1'>
+                      <div className='sec1_token'>
                         <img src={logo_paxg} alt="" />
-                        <span className={styles.span_token}>PAXG</span>
-                        <span className={styles.mobile_balance}>
+                        <span className='span_token'>PAXG</span>
+                        <span className='mobile_balance'>
                           <FormattedMessage id='balance' />
-                          <span className={styles.mobile_balance_num}>
+                          <span className='mobile_balance_num'>
                             {this.state.my_balance_paxg ? format_num_to_K(format_bn(this.state.my_balance_paxg, 18, 2)) : '...'}
                           </span>
                         </span>
                       </div>
 
-                      <div className={styles.sec1_input}>
+                      <div className='sec1_input'>
                         <Input
                           placeholder={'Amount in PAXG'}
                           type="text"
                           value={this.state.value_paxg}
                           onChange={(e) => { paxg_change(this, e.target.value) }}
                         />
-                        <span className={styles.span_max} onClick={(e) => { paxg_click_max(this) }}>
+                        <span className='span_max' onClick={(e) => { paxg_click_max(this) }}>
                           MAX
                         </span>
                       </div>
 
-                      <div className={styles.sec1_rate}>
+                      <div className='sec1_rate'>
                         1 PAXG = {this.state.paxg_to_goldx ? format_bn(this.state.paxg_to_goldx, 18, 6) : '...'} GOLDx
                       </div>
                     </div>
 
-                    <div className={styles.sec2}>
+                    <div className='sec2'>
                       <img src={icon_arrow} alt="" />
                     </div>
 
-                    <div className={styles.sec1}>
-                      <div className={styles.sec1_token}>
+                    <div className='sec1'>
+                      <div className='sec1_token'>
                         <img src={logo_goldx} alt="" />
-                        <span className={styles.span_token}>GOLDx</span>
-                        <span className={styles.mobile_balance}>
+                        <span className='span_token'>GOLDx</span>
+                        <span className='mobile_balance'>
                           <FormattedMessage id='balance' />
-                          <span className={styles.mobile_balance_num}>
+                          <span className='mobile_balance_num'>
                             {this.state.my_balance_goldx ? format_num_to_K(format_bn(this.state.my_balance_goldx, 18, 2)) : '...'}
                           </span>
                         </span>
                       </div>
-                      <div className={styles.sec1_input}>
+                      <div className='sec1_input'>
                         <Input type="text" disabled={true} value={this.state.to_receive_goldx} placeholder='0.00' />
                       </div>
                     </div>
 
                   </div>
-                  <div className={styles.pane_bottom}>
+                  <div className='pane_bottom'>
                     <Button
                       onClick={() => { click_mint(this) }}
                       disabled={this.state.is_btn_disabled_mint}
-                      className={this.state.is_btn_disabled_mint ? styles.btn_disabled : ''}
+                      className={this.state.is_btn_disabled_mint ? 'btn_disabled' : ''}
                     >
                       MINT
                     </Button>
@@ -665,59 +666,59 @@ export default class Index extends React.Component<any, any> {
                 </TabPane>
 
                 <TabPane tab={this.state.cur_language === '中文' ? "取回" : "REDEEM"} key="2">
-                  <div className={styles.pane_top}>
+                  <div className='pane_top'>
 
-                    <div className={styles.sec1}>
-                      <div className={styles.sec1_token}>
+                    <div className='sec1'>
+                      <div className='sec1_token'>
                         <img src={logo_goldx} alt="" />
-                        <span className={styles.span_token}>GOLDx</span>
-                        <span className={styles.mobile_balance}>
+                        <span className='span_token'>GOLDx</span>
+                        <span className='mobile_balance'>
                           <FormattedMessage id='balance' />
-                          <span className={styles.mobile_balance_num}>
+                          <span className='mobile_balance_num'>
                             {this.state.my_balance_goldx ? format_num_to_K(format_bn(this.state.my_balance_goldx, 18, 2)) : '...'}
                           </span>
                         </span>
                       </div>
 
-                      <div className={styles.sec1_input}>
+                      <div className='sec1_input'>
                         <Input
                           placeholder={'Amount in GOLDx'}
                           type="text"
                           value={this.state.value_goldx}
                           onChange={(e) => { goldx_change(this, e.target.value) }}
                         />
-                        <span className={styles.span_max} onClick={(e) => { goldx_click_max(this) }}>
+                        <span className='span_max' onClick={(e) => { goldx_click_max(this) }}>
                           MAX
                         </span>
                       </div>
 
-                      <div className={styles.sec1_rate}>
+                      <div className='sec1_rate'>
                         1 GOLDx = {this.state.goldx_to_paxg ? format_bn(this.state.goldx_to_paxg, 18, 6) : '...'} PAXG
                       </div>
                     </div>
 
-                    <div className={styles.sec2}>
+                    <div className='sec2'>
                       <img src={icon_arrow} alt="" />
                     </div>
 
-                    <div className={styles.sec1}>
-                      <div className={styles.sec1_token}>
+                    <div className='sec1'>
+                      <div className='sec1_token'>
                         <img src={logo_paxg} alt="" />
-                        <span className={styles.span_token}>PAXG</span>
-                        <span className={styles.mobile_balance}>
+                        <span className='span_token'>PAXG</span>
+                        <span className='mobile_balance'>
                           <FormattedMessage id='balance' />
-                          <span className={styles.mobile_balance_num}>
+                          <span className='mobile_balance_num'>
                             {this.state.my_balance_paxg ? format_num_to_K(format_bn(this.state.my_balance_paxg, 18, 2)) : '...'}
                           </span>
                         </span>
                       </div>
-                      <div className={styles.sec1_input}>
+                      <div className='sec1_input'>
                         <Input type="text" disabled={true} value={this.state.to_receive_paxg} placeholder='0.00' />
                       </div>
                     </div>
 
                   </div>
-                  <div className={styles.pane_bottom}>
+                  <div className='pane_bottom'>
                     <Button
                       onClick={() => { click_redeem(this) }}
                       disabled={this.state.is_btn_disabled_redeem}
@@ -729,7 +730,7 @@ export default class Index extends React.Component<any, any> {
                 </TabPane>
               </Tabs>
             </div>
-            <div className={styles.content_left_bottom}>
+            <div className='content_left_bottom'>
               <History
                 account={this.state.my_account}
                 net_type={this.state.net_type}
@@ -739,54 +740,54 @@ export default class Index extends React.Component<any, any> {
               />
             </div>
           </div>
-          <div className={styles.content_right}>
-            <div className={styles.title}>
+          <div className='content_right'>
+            <div className='title'>
               <FormattedMessage id='Wallet_Balance' />
             </div>
-            <div className={styles.balance}>
-              <span className={styles.balance_left}>ETH</span>
-              <span className={styles.balance_right}>
+            <div className='balance'>
+              <span className='balance_left'>ETH</span>
+              <span className='balance_right'>
                 {this.state.my_balance_eth ? format_num_to_K(format_bn(this.state.my_balance_eth, 18, 2)) : '...'}
               </span>
             </div>
 
-            <div className={styles.balance}>
-              <span className={styles.balance_left}>GOLDx</span>
-              <span className={styles.balance_right}>
+            <div className='balance'>
+              <span className='balance_left'>GOLDx</span>
+              <span className='balance_right'>
                 {this.state.my_balance_goldx ? format_num_to_K(format_bn(this.state.my_balance_goldx, 18, 2)) : '...'}
               </span>
             </div>
 
-            <div className={styles.balance}>
-              <span className={styles.balance_left}>PAXG</span>
-              <span className={styles.balance_right}>
+            <div className='balance'>
+              <span className='balance_left'>PAXG</span>
+              <span className='balance_right'>
                 {this.state.my_balance_paxg ? format_num_to_K(format_bn(this.state.my_balance_paxg, 18, 2)) : '...'}
               </span>
             </div>
 
-            <div className={styles.balance_line}></div>
+            <div className='balance_line'></div>
 
-            <div className={styles.balance}>
-              <span className={styles.balance_left}>
+            <div className='balance'>
+              <span className='balance_left'>
                 <FormattedMessage id='Goldx_Outstanding' />
               </span>
-              <span className={styles.balance_right}>
+              <span className='balance_right'>
                 {this.state.totalSupply_goldx ? format_num_to_K(format_bn(this.state.totalSupply_goldx, 18, 2)) : '...'}
               </span>
             </div>
-            <div className={styles.balance}>
-              <span className={styles.balance_left}>
+            <div className='balance'>
+              <span className='balance_left'>
                 <FormattedMessage id='PAXG_Total_Supply' />
               </span>
-              <span className={styles.balance_right}>
+              <span className='balance_right'>
                 {this.state.totalSupply_paxg ? format_num_to_K(format_bn(this.state.totalSupply_paxg, 18, 2)) : '...'}
               </span>
             </div>
-            <div className={styles.balance}>
-              <span className={styles.balance_left}>
+            <div className='balance'>
+              <span className='balance_left'>
                 <FormattedMessage id='Total_PAXG_in_Goldx' />
               </span>
-              <span className={styles.balance_right}>
+              <span className='balance_right'>
                 {this.state.balanceOf_paxg ? format_num_to_K(format_bn(this.state.balanceOf_paxg, 18, 2)) : '...'}
               </span>
             </div>

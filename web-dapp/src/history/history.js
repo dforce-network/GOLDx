@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import moment from 'moment';
-import "./history.less";
+import "./history.css";
 import { IntlProvider, FormattedMessage } from 'react-intl';
 import en_US from '../language/en_US.js';
 import zh_CN from '../language/zh_CN';

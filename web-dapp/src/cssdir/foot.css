@@ -1,0 +1,179 @@
+@media screen and (min-width: 768px) {
+  .foot {
+    border-top: 1px solid rgba(229, 230, 242, 0.7);
+    padding-top: 26px;
+    width: 882px;
+    margin: 0 auto;
+    padding-bottom: 4px;
+    margin-top: 50px;
+  }
+  .foot .foot-item {
+    float: left;
+    width: 200px;
+  }
+  .foot .foot-item .foot-item-title {
+    height: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6d6b85;
+  }
+  .foot .foot-item .foot-item-content {
+    height: 22px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #868593;
+  }
+  .foot .foot-item .foot-item-content a {
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 13px;
+    font-weight: 400;
+    color: #868593;
+    position: relative;
+  }
+  .foot .foot-item .foot-item-content a:hover {
+    color: #29BB92;
+    color: #675cff;
+  }
+  .foot .foot-item .foot-item-content .weixin-img {
+    display: none;
+    position: absolute;
+    width: 80px !important;
+    left: -25px;
+    bottom: 40px;
+  }
+  .foot .foot-item .foot-item-content .weixin-img-wrap {
+    position: relative;
+  }
+  .foot .foot-item .foot-item-content .weixin-img-wrap img {
+    width: 23px;
+  }
+  .foot .foot-item .foot-item-content .weixin-img-wrap:hover .weixin-img {
+    display: block;
+  }
+  .foot .foot-item .footer-right-fixed:hover .fixed2 {
+    display: block;
+  }
+  .foot .foot-item .footer-right-fixed {
+    padding-top: 12px;
+    position: relative;
+    cursor: pointer;
+    width: 80px;
+    font-size: 14px;
+  }
+  .foot .foot-item .footer-right-fixed .fixed1 {
+    float: left;
+  }
+  .foot .foot-item .footer-right-fixed .fixed2 {
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    background: #FFF;
+    width: 90px;
+    box-shadow: 0px 0px 35px 0px rgba(94, 85, 126, 0.15);
+    /* border-radius: 6px; */
+    left: -20px;
+  }
+  .foot .foot-item .footer-right-fixed .fixed2 ul {
+    margin-bottom: 0;
+  }
+  .foot .foot-item .footer-right-fixed .fixed2 ul li {
+    text-align: center;
+    line-height: 36px;
+    font-size: 12px;
+  }
+  .foot .foot-item .footer-right-fixed .fixed2 ul li:hover {
+    background: #F0EEFF;
+    cursor: pointer;
+  }
+  .foot .foot-item .footer-right-fixed .fixed2 ul li:nth-child(1) {
+    border-bottom: 1px solid #DDDDE8;
+  }
+  .foot .foot-item .footer-right-fixed .fixed-img {
+    float: left;
+    margin-left: 10px;
+  }
+  .foot .foot-item .footer-right-fixed .fixed-img img {
+    width: 10px;
+  }
+  .foot .foot-item .footer-right-fixed ul,
+.foot .foot-item .footer-right-fixed li {
+    list-style: none;
+  }
+  .foot .padding-left20 {
+    padding-left: 20px;
+  }
+  .foot .foot-item:nth-child(2n) {
+    width: 309px;
+  }
+  .foot .icom-a a {
+    margin-right: 6px;
+  }
+  .foot .icom-a a img {
+    width: 23px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .foot {
+    width: 94%;
+    margin: 0 auto;
+    padding-bottom: 4px;
+    border-top: 1px solid rgba(229, 230, 242, 0.7);
+    margin-top: 12px;
+  }
+  .foot .foot-item {
+    width: 100%;
+    float: left;
+  }
+  .foot .foot-item .foot-item-title {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #6d6b85;
+    height: 30px;
+  }
+  .foot .foot-item .foot-item-content {
+    font-size: 12px;
+    color: #868593;
+    height: 26px;
+  }
+  .foot .foot-item .foot-item-content a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #868593;
+    transition: 0.3s;
+    position: relative;
+  }
+  .foot .foot-item .foot-item-content a:hover {
+    color: #29BB92;
+    color: #675cff;
+  }
+  .foot .foot-item .foot-item-content a img {
+    width: 20px;
+  }
+  .foot .foot-item .foot-item-content .weixin-img {
+    display: none;
+    position: absolute;
+    width: 80px !important;
+    left: 0px;
+    bottom: 24px;
+  }
+  .foot .foot-item .foot-item-content .weixin-img-wrap {
+    position: relative;
+  }
+  .foot .foot-item .foot-item-content .weixin-img-wrap img {
+    width: 20px;
+  }
+  .foot .foot-item .foot-item-content .weixin-img-wrap:hover .weixin-img {
+    display: block;
+  }
+  .foot .foot-item .footer-right-fixed {
+    display: none;
+  }
+  .foot .foot-item:nth-child(3n) {
+    width: 100%;
+  }
+  .foot .icom-a a {
+    margin-right: 15px;
+  }
+}
