@@ -83,7 +83,7 @@ export default function Footer(props) {
               )}
             </ul>
           </div>
-          <div className={"info_ct"}>
+          {/* <div className={"info_ct"}>
             <b>
               <FormattedMessage id="products" />
             </b>
@@ -104,7 +104,7 @@ export default function Footer(props) {
             <a href="/">
               <FormattedMessage id="GOLDx" />
             </a>
-          </div>
+          </div> */}
           <div className={"info_ct info_r"}>
             <b>
               <FormattedMessage id="contactUs" />
@@ -146,7 +146,7 @@ export default function Footer(props) {
           <div className={"info_l"}>
             <SvgIcon className={"goldx_logo"} iconClass={"goldx_logo"} />
           </div>
-          <div className={"info_ct"}>
+          {/* <div className={"info_ct"}>
             <b>
               <FormattedMessage id="products" />
             </b>
@@ -167,7 +167,7 @@ export default function Footer(props) {
             <a href="/">
               <FormattedMessage id="GOLDx" />
             </a>
-          </div>
+          </div> */}
           <div className={"info_ct"}>
             <b>
               <FormattedMessage id="developer" />

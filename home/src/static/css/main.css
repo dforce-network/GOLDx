@@ -37,13 +37,11 @@
         }
         div {
           position: relative;
-          // margin-right: 40px;
           text-align: center;
           width: 75px;
           padding: 20px;
 
           a {
-            // color: #787c8f;
             color: #1f243a;
             font-weight: bold;
           }
@@ -79,14 +77,6 @@
                 color: #676c81;
                 font-weight: 500;
               }
-              // &:nth-child(2n) {
-              //   a {
-              //     color: #aaacb8;
-              //     font-weight: normal;
-              //     font-size: 0.7em;
-              //     margin-bottom: 5px;
-              //   }
-              // }
             }
           }
 
@@ -216,10 +206,6 @@
           margin-right: 20px;
           font-size: 0.9em;
           color: #fa9b00;
-          &.active {
-            // background-color: #fa9b00;
-            // color: #fff;
-          }
         }
         .btn {
           display: inline-block;
@@ -490,7 +476,6 @@
           transition: all 0.5s ease-in;
 
           a {
-            // color: rgba(137, 140, 157, 1);
             text-decoration: underline;
           }
         }
@@ -527,7 +512,6 @@
         .top_info {
           display: flex;
           justify-content: space-between;
-          // align-items: center;
           padding: 50px 0 60px;
 
           .info_l {
@@ -599,33 +583,7 @@
                 color: #fff;
               }
             }
-          }
-
-          // .info_r {
-          //   display: flex;
-          //   justify-content: space-between;
-          //   padding-left: -40px;
-
-          //   .wx_code {
-          //     margin-left: 40px;
-          //     display: flex;
-          //     flex-direction: column;
-          //     justify-content: space-between;
-          //     align-items: center;
-
-          //     p {
-          //       font-size: 0.8em;
-          //       font-weight: bold;
-          //       color: rgba(216, 216, 216, 1);
-          //       margin-bottom: 15px;
-          //     }
-
-          //     svg {
-          //       width: 120px;
-          //       height: 120px;
-          //     }
-          //   }
-          // }
+          }          
         }
 
         .copyright {
@@ -716,7 +674,6 @@
           }
           div.nav_link {
             width: 100%;
-            // margin-top: 20px;
             .nav_link_title {
               position: relative;
               display: flex;
@@ -766,11 +723,6 @@
                   color: #676c81;
                   font-weight: 500;
                 }
-                // &:nth-child(2n) {
-                //   a {
-                //     color: #aaacb8;
-                //   }
-                // }
               }
             }
             &.active {
@@ -824,7 +776,6 @@
           display: block;
           width: 86.6%;
           margin: 15px auto 0;
-          // box-sizing: border-box;
           img {
             width: calc(100vw - 50px);
             height: calc((100vw - 50px) * 302 / 650);
@@ -834,7 +785,6 @@
           display: block;
           width: 86.6%;
           margin: 15px auto 0;
-          // box-sizing: border-box;
           img {
             width: calc(100vw - 50px);
             height: calc((100vw - 50px) * 360 / 650);
@@ -877,26 +827,6 @@
 
       .transaction {
         display: none;
-        // width: 100%;
-        // padding: 20px 0;
-
-        // .trans_warp {
-        //   width: 100%;
-        //   padding: 0 10px;
-        //   box-sizing: border-box;
-
-        //   .top {
-        //     height: 70px;
-        //     background-size: cover;
-        //     background-repeat: no-repeat;
-        //   }
-
-        //   .btn {
-        //     width: 50%;
-        //     font-size: 0.7em;
-        //     line-height: 2.5em;
-        //   }
-        // }
       }
 
       .features {
@@ -921,8 +851,6 @@
           margin-top: 0;
           li {
             width: 99%;
-            // box-shadow: 5px 9px 30px 0 rgba(52, 52, 92, 0.08);
-            // border-radius: 6px;
             border-radius: 5px;
             border: 0.5px solid rgba(229, 230, 233, 1);
             padding: 10px 10px 20px;
@@ -946,8 +874,6 @@
               p {
                 font-size: 0.6em;
                 line-height: 1.5em;
-                // word-break: break-all;
-                // white-space: pre-wrap;
               }
             }
           }
@@ -992,7 +918,6 @@
               svg {
                 width: 100%;
                 margin-bottom: 0;
-                // height: 40px;
               }
               a {
                 padding: 0;
@@ -1138,7 +1063,6 @@
               }
             }
             .info_r {
-              // flex-direction: column;
               margin-bottom: 0;
               .info_r_link {
                 display: flex;

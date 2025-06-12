@@ -6,7 +6,7 @@ export default function Transaction() {
     <div className={"transaction"}>
       <div className={"trans_warp"}>
         <div className={"top"}></div>
-        <a href="https://trade.dforce.network/" className={"btn"}>
+        <a className={"btn"}>
           <FormattedMessage id="swap" />
         </a>
       </div>
