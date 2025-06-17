@@ -68,11 +68,12 @@ function Banner(props) {
             <FormattedMessage id="WhitePaper" />
           </a>
         )}
-        <a href="/dapp" className={"btn"}>
+        {/* <a href="/dapp" className={"btn"}> */}
+        <a href="http://alpha.dforce.network" target="_blank" className={"btn"}>
           <FormattedMessage id="Mint" />
         </a>
         <a
-          href="https://trade.dforce.network/"
+          // href="https://trade.dforce.network/"
           className={"m_btn active"}
           target="_blank"
           rel="noopener noreferrer"
