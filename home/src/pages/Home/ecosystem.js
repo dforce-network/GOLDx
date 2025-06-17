@@ -44,7 +44,7 @@ export default function Ecosystem() {
               <span>dForce Hybrid Lending</span>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -53,7 +53,7 @@ export default function Ecosystem() {
               <SvgIcon iconClass={"ecosystem3"} />
               <span>dForce Trade</span>
             </a>
-          </li>
+          </li> */}
           <li>
             <a
               target="_blank"
